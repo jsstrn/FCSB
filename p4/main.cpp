@@ -5,10 +5,9 @@
  *	This work is licensed under CC BY-SA 4.0
  */
 
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
+#include "lib.h"
+#include "Search.h"
+#include "Sort.h"
 
 /*********************************************/
 /*               Main Function               */
