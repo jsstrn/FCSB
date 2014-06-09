@@ -17,7 +17,7 @@ void goodbye();
 
 int main()
 {
-	srand(time(0));
+	srand(time(0)); // seed rand() with current time
 	vector<int> table;
 
 	// prompt user for table size

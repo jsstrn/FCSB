@@ -1,34 +1,14 @@
-/*	
- *	Developed by Jesstern Rays a1674845
- *	Bachelor of Computer Science, University of Adelaide
- *	All Rights Reserved. Copyright (C) Jesstern Rays
- *	This work is licensed under CC BY-SA 4.0
- */
-
 #ifndef SORT_H
 #define SORT_H
+void bubblesort(int[], int size);
+void selectionsort(int[], int size);
+void display(int [], int size);
+void insertionsort(int [], int size);
 
-// include common c++ libraries
-#include "lib.h"
- 
-/**************************************************/
-/*               Class Declarations               */
-/**************************************************/
+void quicksort(int [], int left, int right);
+int partition(int [], int, int);
+void swap(int [],int, int);
 
-class Sort
-{
-protected:
-	/* member variables */
-	double var1;
-public:
-	/* constructor */
-	Sort(double);
-
-	/* member functions */
-	double getFunc();
-	void setFunc(double);
-	virtual double myFunc();
-
-}; // end Sort class
-
+void mergesort(int [], int left, int right);
+void merge(int [], int left, int mid, int right);
 #endif
