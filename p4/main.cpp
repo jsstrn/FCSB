@@ -5,9 +5,9 @@
  *	This work is licensed under CC BY-SA 4.0
  */
 
+#include "search.h"
+#include "sort.h"
 #include "lib.h"
-#include "Search.h"
-#include "Sort.h"
 
 /*********************************************/
 /*               Main Function               */
@@ -32,6 +32,7 @@ int main()
 		table.resize(size);
 		// assign random integers to the vector
 		for (int i = 0; i < table.size(); i++) {
+			// table[i] = i;
 			table[i] = rand() % 100 + 1;
 		}
 	}
@@ -46,10 +47,15 @@ int main()
 
 	// generate a search term
 	cout << "Search term: ";
-	int search = rand() % table.size() + 0;
-	cout << table[search] << endl;
+	int search = table[ rand() % table.size() + 0 ];
+	cout << search << endl;
 	
 	// search unsorted table
+	 if (linSearch(table, search)) {
+	 	cout << "We found it!" << endl;
+	 } else {
+	 	cout << "Not found!" << endl;
+	 }
 
 	// sort table
 

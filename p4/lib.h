@@ -13,14 +13,12 @@
 /*********************************************/
 
 /* c++ standard library */
-using namespace std;
 #include <iostream>		// inpput and output
 #include <exception>	// for exception handling
 #include <string>		// for strings
 #include <array>		// for arrays
 #include <vector>		// for vectors
 
-/* other libraries */
-#include <math>			// for math functions
+using namespace std;
 
 #endif

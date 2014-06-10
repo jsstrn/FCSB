@@ -1,6 +1,5 @@
 #include "sort.h"
-#include <iostream>
-using namespace std;
+#include "lib.h"
 
 void bubblesort(int arr[], int size){
 //sorts descending

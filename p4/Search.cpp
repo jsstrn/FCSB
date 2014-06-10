@@ -1,5 +1,5 @@
-#include <iostream>
 #include "search.h"
+#include "lib.h"
 
 bool linearsearch(int alist[], int size, int target){
    for (int i=0; i< size; i++){
@@ -33,5 +33,12 @@ bool rebinsearch(int alist[], int target, int left, int right) {
   else
     return rebinsearch(alist, target, left, mid - 1);
   return true;
+}
+bool linSearch(vector<int>& table, int search) {
+  for (int i = 0; i < table.size(); ++i) {
+    if (table[i] == search)
+      return true;
+  }
+  return false;
 }
 

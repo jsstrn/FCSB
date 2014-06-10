@@ -1,5 +1,8 @@
 #ifndef SORT_H
 #define SORT_H
+
+#include "lib.h"
+
 void bubblesort(int[], int size);
 void selectionsort(int[], int size);
 void display(int [], int size);
@@ -11,4 +14,5 @@ void swap(int [],int, int);
 
 void mergesort(int [], int left, int right);
 void merge(int [], int left, int mid, int right);
+
 #endif
