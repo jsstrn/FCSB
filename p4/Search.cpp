@@ -13,18 +13,18 @@ bool rebinsearch(int alist[], int target, int left, int right) {
     return rebinsearch(alist, target, left, mid - 1);
   return true;
 }
-/* Linear search algorithm
- * Complexity: O(n)
- * Precondition: sorting not required */
+/* linear search algorithm
+ * complexity: O(n)
+ * precondition: sorting not required */
 int linearSearch(vector <int>& table, int search) {
   for (int i = 0; i < table.size(); ++i) {
     if (table[i] == search) return i;
   }
   return -1;
 }
-/* Binary search algorithm (ascending order)
- * Complexity: O(log n)
- * Precondition: sorting required */
+/* binary search algorithm (ascending order)
+ * complexity: O(log n)
+ * precondition: sorting required */
 int binarySearch(vector <int>& table, int search) {
   int start = 0;
   int end = table.size() - 1;
@@ -39,4 +39,18 @@ int binarySearch(vector <int>& table, int search) {
   }
   return -1;
 }
+void result(int index, int search) {
+  index += 1; // increment index by 1
 
+  string pos = "th";          // Nth position
+  if (index == 1) pos = "st"; // 1st position
+  if (index == 2) pos = "nd"; // 2nd position
+  if (index == 3) pos = "rd"; // 3rd position
+
+  if (index != 0) {
+    cout << "We found it! " << search << " is the ";
+    cout << index << pos << " element of the table." << endl;
+  } else {
+    cout << "Sorry. No match found." << endl;
+  }
+}

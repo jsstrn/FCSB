@@ -1,6 +1,21 @@
 #include "Sort.h"
 #include "lib.h"
 
+/* smart swap is able to swap two vairables without a temp */
+void smartSwap(vector <int>& table , int a, int b) {
+  table[a] = table[a] + table[b]; // a = (a + b)
+  table[b] = table[a] - table[b]; // b = (a + b) - b
+  table[a] = table[a] - table[b]; // a = (a + b) - a
+}
+/* bubble sort algorithm (ascending order)
+ * complexity: O(n^2) */
+void bubbleSort(vector <int>& table) {
+  for (int i = 0; i < table.size(); ++i) {
+    if (table[i] > table[i + 1])
+      smartSwap(table, i, i + 1);
+  }
+}
+
 void bubblesort(int arr[], int size){
 //sorts descending
 	int count=1;

@@ -13,7 +13,6 @@
 /*               Main Function               */
 /*********************************************/
 
-void result(int, int);
 void goodbye();
 
 int main()
@@ -58,7 +57,7 @@ int main()
 	cout << "Binary search - ";
 	result(binarySearch(table, search), search); // binary search
 
-	// sort table
+	// sort table in ascending order
 	// bubble sort
 	// selection sort
 	// insertion sort
@@ -71,37 +70,10 @@ int main()
 	result(linearSearch(table, search), search); // linear search
 	result(binarySearch(table, search), search); // binary search
 
-	// smart swap
-	/*
-	int a = 32;
-	int b = 21;
-	cout << a << " and " << b << endl;
-	a = a + b;
-	b = a - b; // b = (a + b) - b
-	a = a - b; // a = (a + b) - a
-	cout << a << " and " << b << endl;
-	*/
-
 	// say goodbye
 	goodbye();	
 	return 0;
 } // end main function 
-
-void result(int index, int search) {
-	index += 1; // increment index by 1
-
-	string pos = "th";			// Nth position
-	if (index == 1) pos = "st"; // 1st position
-	if (index == 2) pos = "nd"; // 2nd position
-	if (index == 3) pos = "rd"; // 3rd position
-
-	if (index != 0) {
-		cout << "We found it! " << search << " is the ";
-		cout << index << pos << " element of the table." << endl;
-	} else {
-		cout << "Sorry. No match found." << endl;
-	}
-}
 
 void goodbye() {
 	cout << "Goodbye!" << endl;
