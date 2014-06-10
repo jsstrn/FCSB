@@ -22,9 +22,9 @@ int linearSearch(vector <int>& table, int search) {
   }
   return -1;
 }
-/* binary search algorithm (ascending order)
+/* binary search algorithm 
  * complexity: O(log n)
- * precondition: sorting required */
+ * precondition: sorting required (ascending order) */
 int binarySearch(vector <int>& table, int search) {
   int start = 0;
   int end = table.size() - 1;
@@ -32,12 +32,22 @@ int binarySearch(vector <int>& table, int search) {
     int mid = (start + end) / 2;  // calculate midpoint
     if (table[mid] == search)     // search term found
       return mid;
-    else if (table[mid] > search) // search the left side
+    else if (table[mid] > search) // search left side
       end = mid - 1;
-    else                          // search the right side
+    else                          // search right side
       start = mid + 1;
   }
   return -1;
+}
+int binarySearchRecursive(vector <int>& table, int search, int start, int end) {
+  if (end > start) return -1;   // base case 
+  int mid = (start + end) / 2;  // calculate midpoint
+  if (table[mid] == search)
+    return mid;
+  else if (table[mid] > search) // search left side
+    return binarySearchRecursive(table, search, start, mid - 1);
+  else                          // search right side
+    return binarySearchRecursive(table, search, mid + 1, end);
 }
 void result(int index, int search) {
   index += 1; // increment index by 1
