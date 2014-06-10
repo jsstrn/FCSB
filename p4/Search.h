@@ -3,8 +3,6 @@
 
 #include "lib.h"
 
-bool binarysearch(int[], int size, int target);
-
 int linearSearch(vector <int>& table, int search);
 int binarySearch(vector <int>& table, int search);
 

@@ -1,20 +1,6 @@
 #include "Search.h"
 #include "lib.h"
 
-bool binarysearch(int alist[], int size, int target){
-     int first = 0;
-     int last = size - 1;
-     while (first <= last) {
-       int mid = (first+last)/2; // compute midpoint
-       if (alist[mid] == target)
-         return true;            // found target
-       else if (alist[mid] > target)   
-         last = mid - 1;        // search left half
-       else
-         first = mid + 1;       // search right half
-     }
-    return false;               // target not there
-}
 bool rebinsearch(int alist[], int target, int left, int right) {
   if (right > left)
     return false;
@@ -37,18 +23,18 @@ int linearSearch(vector <int>& table, int search) {
   return -1;
 }
 /* Binary search algorithm
- * Complexity: O(n)
+ * Complexity: O(log n)
  * Precondition: sorting required */
 int binarySearch(vector <int>& table, int search) {
   int start = 0;
   int end = table.size() - 1;
   while (start <= end) {
-    int mid = (start + end) / 2;
-    if (table[mid] == search)
+    int mid = (start + end) / 2;  // calculate midpoint
+    if (table[mid] == search)     // search term found
       return mid;
-    else if (table[mid] > search)
+    else if (table[mid] > search) // search the left side
       end = mid - 1;
-    else
+    else                          // search the right side
       start = mid + 1;
   }
   return -1;
