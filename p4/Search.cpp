@@ -27,13 +27,30 @@ bool rebinsearch(int alist[], int target, int left, int right) {
     return rebinsearch(alist, target, left, mid - 1);
   return true;
 }
+/* Linear search algorithm
+ * Complexity: O(n)
+ * Precondition: sorting not required */
 int linearSearch(vector <int>& table, int search) {
   for (int i = 0; i < table.size(); ++i) {
     if (table[i] == search) return i;
   }
   return -1;
 }
+/* Binary search algorithm
+ * Complexity: O(n)
+ * Precondition: sorting required */
 int binarySearch(vector <int>& table, int search) {
-  int first = 0;
+  int start = 0;
+  int end = table.size() - 1;
+  while (start <= end) {
+    int mid = (start + end) / 2;
+    if (table[mid] == search)
+      return mid;
+    else if (table[mid] > search)
+      end = mid - 1;
+    else
+      start = mid + 1;
+  }
+  return -1;
 }
 

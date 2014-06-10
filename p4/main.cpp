@@ -33,8 +33,8 @@ int main()
 		table.resize(size);
 		// assign random integers to the vector
 		for (int i = 0; i < table.size(); i++) {
-			// table[i] = i;
-			table[i] = rand() % 100 + 1;
+			// table[i] = i;			 // assign incremental values
+			table[i] = rand() % 100 + 1; // assign random values
 		}
 	}
 
@@ -52,9 +52,8 @@ int main()
 	cout << search << endl;
 	
 	// search unsorted table
-	// using linear search algorithm
-	result(linearSearch(table, search), search);
-	// using binary search algorithm
+	result(linearSearch(table, search), search); // linear search
+	result(binarySearch(table, search), search); // binary search
 
 	// sort table
 
@@ -84,7 +83,7 @@ void result(int index, int search) {
 	if (index == 2) pos = "nd"; // 2nd position
 	if (index == 3) pos = "rd"; // 3rd position
 
-	if (index != -1) {
+	if (index != 0) {
 		cout << "We found it! " << search << " is the ";
 		cout << index << pos << " element of the table." << endl;
 	} else {
