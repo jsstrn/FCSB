@@ -1,13 +1,6 @@
-#include "search.h"
+#include "Search.h"
 #include "lib.h"
 
-bool linearsearch(int alist[], int size, int target){
-   for (int i=0; i< size; i++){
-	if (alist[i]==target)
-	  return true;
-   }
-   return false;
-}
 bool binarysearch(int alist[], int size, int target){
      int first = 0;
      int last = size - 1;
@@ -34,11 +27,13 @@ bool rebinsearch(int alist[], int target, int left, int right) {
     return rebinsearch(alist, target, left, mid - 1);
   return true;
 }
-bool linSearch(vector<int>& table, int search) {
+int linearSearch(vector <int>& table, int search) {
   for (int i = 0; i < table.size(); ++i) {
-    if (table[i] == search)
-      return true;
+    if (table[i] == search) return i;
   }
-  return false;
+  return -1;
+}
+int binarySearch(vector <int>& table, int search) {
+  int first = 0;
 }
 

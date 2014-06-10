@@ -1,4 +1,4 @@
-#include "sort.h"
+#include "Sort.h"
 #include "lib.h"
 
 void bubblesort(int arr[], int size){

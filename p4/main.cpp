@@ -5,14 +5,15 @@
  *	This work is licensed under CC BY-SA 4.0
  */
 
-#include "search.h"
-#include "sort.h"
+#include "Search.h"
+#include "Sort.h"
 #include "lib.h"
 
 /*********************************************/
 /*               Main Function               */
 /*********************************************/
 
+void result(int, int);
 void goodbye();
 
 int main()
@@ -51,17 +52,16 @@ int main()
 	cout << search << endl;
 	
 	// search unsorted table
-	 if (linSearch(table, search)) {
-	 	cout << "We found it!" << endl;
-	 } else {
-	 	cout << "Not found!" << endl;
-	 }
+	// using linear search algorithm
+	result(linearSearch(table, search), search);
+	// using binary search algorithm
 
 	// sort table
 
 	// search sorted table
 
 	// smart swap
+	/*
 	int a = 32;
 	int b = 21;
 	cout << a << " and " << b << endl;
@@ -69,11 +69,28 @@ int main()
 	b = a - b; // b = (a + b) - b
 	a = a - b; // a = (a + b) - a
 	cout << a << " and " << b << endl;
+	*/
 
 	// say goodbye
 	goodbye();	
 	return 0;
 } // end main function 
+
+void result(int index, int search) {
+	index += 1; // increment index by 1
+
+	string pos = "th";			// Nth position
+	if (index == 1) pos = "st"; // 1st position
+	if (index == 2) pos = "nd"; // 2nd position
+	if (index == 3) pos = "rd"; // 3rd position
+
+	if (index != -1) {
+		cout << "We found it! " << search << " is the ";
+		cout << index << pos << " element of the table." << endl;
+	} else {
+		cout << "Sorry. No match found." << endl;
+	}
+}
 
 void goodbye() {
 	cout << "Goodbye!" << endl;

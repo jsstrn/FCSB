@@ -3,8 +3,9 @@
 
 #include "lib.h"
 
-bool linearsearch(int[], int size, int target);
 bool binarysearch(int[], int size, int target);
-bool linSearch(vector<int>& table, int search);
+
+int linearSearch(vector <int>& table, int search);
+int binarySearch(vector <int>& table, int search);
 
 #endif
