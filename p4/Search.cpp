@@ -22,7 +22,7 @@ int linearSearch(vector <int>& table, int search) {
   }
   return -1;
 }
-/* Binary search algorithm
+/* Binary search algorithm (ascending order)
  * Complexity: O(log n)
  * Precondition: sorting required */
 int binarySearch(vector <int>& table, int search) {

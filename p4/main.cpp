@@ -52,12 +52,24 @@ int main()
 	cout << search << endl;
 	
 	// search unsorted table
+	cout << "Table is unsorted." << endl;
+	cout << "Linear search - ";
 	result(linearSearch(table, search), search); // linear search
+	cout << "Binary search - ";
 	result(binarySearch(table, search), search); // binary search
 
 	// sort table
+	// bubble sort
+	// selection sort
+	// insertion sort
+	// bucket sort
+	// merge sort
+	// quick sort
 
 	// search sorted table
+	cout << "Table is sorted." << endl;
+	result(linearSearch(table, search), search); // linear search
+	result(binarySearch(table, search), search); // binary search
 
 	// smart swap
 	/*
