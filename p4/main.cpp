@@ -20,7 +20,7 @@ int main()
 	srand(time(0)); // seed rand() with current time
 	vector<int> table;
 
-	// prompt user for table size
+	/* prompt user for table size */
 	cout << "What is the size of the table? ";
 	unsigned int size;
 	cin >> size;
@@ -37,7 +37,7 @@ int main()
 		}
 	}
 
-	// display table elements
+	/* display table elements */
 	for (int i = 0; i < table.size(); i++) {
 		cout << table[i];
 		if (i < (table.size() - 1)) 
@@ -45,37 +45,56 @@ int main()
 	}
 	cout << endl;
 
-	// generate a search term
-	cout << "Search term: ";
-	int search = table[ rand() % table.size() + 0 ];
+	/* generate a search term */
+	cout << endl << "Search term: ";
+	int search = table[rand() % table.size() + 0];
 	cout << search << endl;
 	
-	// search unsorted table
-	cout << "Table is unsorted." << endl;
+	/* search unsorted table */
+	cout << endl << "Table is unsorted." << endl;
 	cout << "Linear search - ";
 	result(linearSearch(table, search), search); // linear search
 	cout << "Binary search - ";
 	result(binarySearch(table, search), search); // binary search
 
-	// sort table in ascending order
-	// bubble sort
-	// selection sort
-	// insertion sort
-	// bucket sort
-	// merge sort
-	// quick sort
+	/* initialize table */
+	vector <int> unsorted_table = table;
 
-	// search sorted table
-	cout << "Table is sorted." << endl;
+	for (int i : b_table)
+		cout << i << ", ";
+	cout << endl;
+
+	/* sort table in ascending order */
+
+	// bubble sort
+	table = unsorted_table;
+	bubbleSort(table);
+
+	// selection sort
+	// table = unsorted_table;
+
+	// insertion sort
+	// table = unsorted_table;
+
+	// merge sort
+	// table = unsorted_table;
+	
+	// quick sort
+	// table = unsorted_table;
+
+	/* search sorted table */
+	cout << endl <<  "Table is sorted." << endl;
+	cout << "Linear search - ";
 	result(linearSearch(table, search), search); // linear search
+	cout << "Binary search - ";
 	result(binarySearch(table, search), search); // binary search
 
-	// say goodbye
+	/* say goodbye */
 	goodbye();	
 	return 0;
 } // end main function 
 
 void goodbye() {
-	cout << "Goodbye!" << endl;
+	cout << endl << "Goodbye!" << endl;
 	cout << "Developed by Faisal, Hafiz, and Jesstern." << endl;
 }

@@ -3,6 +3,8 @@
 
 #include "lib.h"
 
+void bubbleSort(vector <int>& table);
+
 void bubblesort(int[], int size);
 void selectionsort(int[], int size);
 void display(int [], int size);

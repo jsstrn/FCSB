@@ -10,31 +10,34 @@ void smartSwap(vector <int>& table , int a, int b) {
 /* bubble sort algorithm (ascending order)
  * complexity: O(n^2) */
 void bubbleSort(vector <int>& table) {
-  for (int i = 0; i < table.size(); ++i) {
-    if (table[i] > table[i + 1])
-      smartSwap(table, i, i + 1);
+  int pass = 1;
+  for (int k = 0; k < table.size() - 1; ++k) {
+    for (int i = 0; i < table.size() - 1; ++i) {
+      if (table[i] > table[i + 1])
+        smartSwap(table, i, i + 1);
+    } // end of each pass
+    ++pass;
   }
 }
-
 void bubblesort(int arr[], int size){
 //sorts descending
 	int count=1;
 	bool flag;
 	for (int m=size-1; m>0; m--){
-            flag=false;
-	    for (int j=0; j<m; j++){
-		if (arr[j] < arr[j+1]) {
+    flag=false;
+    for (int j=0; j<m; j++){
+      if (arr[j] < arr[j+1]) {
 		   //swap value at index j with value at index j+1
-		   swap(arr,j,j+1);
-		   flag = true; 
-		}
-	    }	
-	    cout<<"Pass "<<count++<<endl;
-	    display(arr,size);
+       swap(arr,j,j+1);
+       flag = true; 
+     }
+   }	
+   cout<<"Pass "<<count++<<endl;
+   display(arr,size);
 	    if (!flag)  //already sorted; nothing to swap
-		 break;
-	}
-}
+     break;
+   }
+ }
 void display(int arr[], int size){
    for (int i=0;i<size;i++)
     printf("%4d ", arr[i]);
