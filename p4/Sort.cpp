@@ -8,18 +8,24 @@ void smartSwap(vector <int>& table , int a, int b) {
   table[a] = table[a] - table[b]; // a = (a + b) - a
 }
 /* bubble sort algorithm (ascending order)
- * complexity: O(n^2) */
+ * complexity: O(n^2) 
+ * comparisons: n - 1 */
+
 void bubbleSort(vector <int>& table) {
-  int pass = 1;
-  for (int k = 0; k < table.size() - 1; ++k) {
-    for (int i = 0; i < table.size() - 1; ++i) {
-      if (table[i] > table[i + 1])
+  int comp = 0;
+  int swap = 0;
+  for (int k = table.size() - 1; k > 0; --k) {
+    for (int i = 0; i < k; ++i) {
+      if (table[i] > table[i + 1]) {
         smartSwap(table, i, i + 1);
+        swap += 1;
+        cout << "Swaps: "<< swap <<endl;
+      }
+      //cout << "Comparisons: " << ++comp << endl;
     } // end of each pass
-    ++pass;
   }
 }
-void bubblesort(int arr[], int size){
+/*void bubblesort(int arr[], int size){
 //sorts descending
 	int count=1;
 	bool flag;
@@ -181,5 +187,5 @@ void merge(int aList[], int left, int mid, int right){
     	for (int i=0; i< len;i++){
     		aList[left++] = tmpA[i];
     	}
-}
+}*/
 

@@ -60,15 +60,15 @@ int main()
 	/* initialize table */
 	vector <int> unsorted_table = table;
 
-	for (int i : b_table)
-		cout << i << ", ";
-	cout << endl;
-
 	/* sort table in ascending order */
 
 	// bubble sort
 	table = unsorted_table;
 	bubbleSort(table);
+
+	for (int i : table)
+		cout << i << ", ";
+	cout << endl;
 
 	// selection sort
 	// table = unsorted_table;
@@ -78,7 +78,7 @@ int main()
 
 	// merge sort
 	// table = unsorted_table;
-	
+
 	// quick sort
 	// table = unsorted_table;
 
