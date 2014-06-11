@@ -1,0 +1,68 @@
+/*	
+ *	Developed by Mohamed Hafiz a1674846
+ *	Bachelor of Computer Science, University of Adelaide
+ */
+
+#include "Algorithm.h"
+#include "lib.h"
+
+int Algorithm::linearSearch(vector <int>& v, int target)
+{
+	for(int i=0; i < v.size(); i++)
+	{
+		if(v[i]==v[target])
+		{
+			flag = 1;
+			return i;
+		}
+		compCounter++;		
+	}
+	return -1;
+}
+
+int Algorithm::binarySearch(vector <int>& v, int target)
+{
+	int first = 0;
+	int last = v.size() - 1;
+	
+	while (first<=last)
+	{
+		int mid = (first+last)/2;
+		if(v[mid] == v[target]) 
+		{
+			flag = 2;
+			return mid;
+		}
+			else if(v[mid] > v[target])
+			{
+				last = mid - 1;
+				compCounter++;
+			}
+				else 
+				{	
+					first = mid + 1;
+				 	compCounter++;
+				}
+	}
+	return -1;
+}
+
+void Algorithm::printSearchResult(int result)
+{
+	if(result>=0 && flag==1)
+	{
+		cout << "The key has been found by Linear search algorithm with a comparison of";
+		cout << " '" << result << "' times! \n" << endl;
+	} 
+	else if(result>=0 && flag==2)
+	{
+	 	cout << "The key has been found by Binary search algorithm with a comparison of";
+		cout << " '" << getCompCounter() << "' times! \n" << endl;
+	}
+	else
+	{
+		cout << "Error! Due to the unsorted table, Binary search was unable to find the key! \n" << endl;
+	}
+	resetCompCounter();
+	flag = 0;
+}
