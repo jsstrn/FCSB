@@ -13,6 +13,7 @@ int Algorithm::linearSearch(vector <int>& v, int target)
 		if(v[i]==v[target])
 		{
 			flag = 1;
+			compCounter++;
 			return i;
 		}
 		compCounter++;		
@@ -31,6 +32,7 @@ int Algorithm::binarySearch(vector <int>& v, int target)
 		if(v[mid] == v[target]) 
 		{
 			flag = 2;
+			compCounter++;
 			return mid;
 		}
 			else if(v[mid] > v[target])
@@ -52,7 +54,7 @@ void Algorithm::printSearchResult(int result)
 	if(result>=0 && flag==1)
 	{
 		cout << "The key has been found by Linear search algorithm with a comparison of";
-		cout << " '" << result << "' times! \n" << endl;
+		cout << " '" << getCompCounter() << "' times! \n" << endl;
 	} 
 	else if(result>=0 && flag==2)
 	{
