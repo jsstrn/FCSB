@@ -3,8 +3,8 @@
  *	Bachelor of Computer Science, University of Adelaide
  */
 
-#ifndef LIBRARIES_H
-#define LIBRARIES_H
+#ifndef LIB_H
+#define LIB_H
 
 /*********************************************/
 /*               C++ Libraries               */

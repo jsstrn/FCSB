@@ -49,6 +49,7 @@ public:
 	vector<int> mergesort(vector<int>&, int, int);
 	void merge(vector<int>&, int, int, int);
 	
+	void displayVector(vector<int>&);
 	void printVector(vector<int>&);
 	
 }; // end base class
