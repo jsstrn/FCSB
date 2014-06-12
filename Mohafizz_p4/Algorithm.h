@@ -16,10 +16,10 @@ class Algorithm
 {
 private:
 	/* restricted variables */
-	vector<int> randomVariables;
-	int flag;
-	int compCounter;
-	int copyCounter;
+	vector<int> randomVariables;		//stores the initial unsorted table
+	int flag;							//flags: 1=linearsearch, 2=binarysearch, 3=bubblesort, 4=selectionsort, 5=insertion, 6=mergesort
+	int compCounter;					//comparison counter
+	int copyCounter;					//copy counter
 protected:
 	/* member variables */
 public:
@@ -33,9 +33,9 @@ public:
 	int generateKey(vector<int>&);
 	
 	int getCompCounter();
-	int getcopyCounter();
+	int getCopyCounter();
 	void resetCompCounter();
-	void resetcopyCounterer();
+	void resetCopyCounter();
 
 	int linearSearch(vector<int>&, int);
 	int binarySearch(vector<int>&, int);
