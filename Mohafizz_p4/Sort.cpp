@@ -129,34 +129,21 @@ void Algorithm::printVector(vector <int>& v)
 	{
 		cout << v[i] << ",";
 	}
-		if(flag==3) 
-		{
-			cout << " was executed by Bubble Sorting! \nwith '"
-			<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-			<< "' no. of comparisons." << endl;
-		}
-			if(flag==4)
-			{
-				cout << " was executed by Selection Sorting! \nwith '" 
-				<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-				<< "' no. of comparisons." << endl;
-			}
-				if(flag==5) 
-				{
-					cout << " was executed by Insertion Sorting! \nwith '" 
-					<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-					<< "' no. of comparisons." << endl;
-				}
-					if(flag==6)
-					{
-						cout << " was executed by Merge Sorting! \nwith '" 
-						<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-						<< "' no. of comparisons." << endl;
-					}
+	/* assign type of sort used */
+	string sortType;
+	if (flag == 3) sortType = "Bubble sort";
+	if (flag == 4) sortType = "Selection sort";
+	if (flag == 5) sortType = "Insertion sort";
+	if (flag == 6) sortType = "Merge sort";
 
-	                	if(flag==0) cout << " table is unsorted!" << endl;
-
+	/* print message */
 	cout << endl;
+	cout << "Sorting algorithm: " << sortType << endl;
+	cout << " Comparisons made: " << getCompCounter() << endl;
+	cout << "      Copies made: " << getCopyCounter() << endl;
+	cout << endl;
+
+	/* reset counters*/
 	flag = 0;
 	resetCompCounter();
 	resetCopyCounter();
