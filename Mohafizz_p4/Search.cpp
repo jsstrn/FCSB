@@ -58,7 +58,15 @@ void Algorithm::printSearchResult(int result)
 	}
 	else
 	{
+<<<<<<< HEAD
 		cout << "Not found." << endl << endl;
+=======
+<<<<<<< HEAD
+		cout << "The key is not found! \n" << endl;
+=======
+		cout << "Not found." << endl << endl;
+>>>>>>> FETCH_HEAD
+>>>>>>> temp
 	}
 	resetCompCounter();
 	flag = 0;

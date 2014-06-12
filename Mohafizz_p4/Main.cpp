@@ -57,11 +57,22 @@ int main()
 	// random->printVector(testcase);
 
 	cout << "***************************|| Searching Algorithm ||*****************************\n" << endl;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+	int lResult2 = random->linearSearch(bsort,index);
+	random->printSearchResult(lResult2);
+
+	int bResult2 = random->binarySearch(selsort,index);
+=======
+>>>>>>> temp
 	/* linear search */
 	int lResult2 = random->linearSearch(bsort,index);
 	random->printSearchResult(lResult2);
 	/* binary search */
 	int bResult2 = random->binarySearch(bsort,index);
+>>>>>>> FETCH_HEAD
 	random->printSearchResult(bResult2);
 
 	return 0;
