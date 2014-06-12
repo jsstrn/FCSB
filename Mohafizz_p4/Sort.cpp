@@ -102,6 +102,7 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
     		else
     		{
     		   temp[k++] = v[rightP++];
+    		   copyCounter++;
     		}
     	}
 		    	while (leftP <= mid) 
