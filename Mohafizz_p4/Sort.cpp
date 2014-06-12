@@ -123,12 +123,26 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 	compCounter++;
 }
 
+void Algorithm::displayVector(vector <int>& v)
+{
+	for (int i = 0; i < v.size(); ++i)
+	{
+		cout << v[i];
+		if (i < v.size() - 1)
+			cout << ", ";
+	}
+	cout << endl;
+}
+
 void Algorithm::printVector(vector <int>& v)
 {
 	for(int i=0; i < v.size(); i++)
 	{
-		cout << v[i] << ",";
+		cout << v[i];
+		if (i < v.size() - 1)
+			cout << ", ";
 	}
+
 	/* assign type of sort used */
 	string sortType;
 	if (flag == 3) sortType = "Bubble sort";

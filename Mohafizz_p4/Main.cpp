@@ -21,7 +21,7 @@ int main()
 	Algorithm *random = new Algorithm();	
 	vector <int> v = random->storeRandom(size);
 
-	random->printVector(v);
+	random->displayVector(v);
 	int index = random->generateKey(v);
 
 	cout << "A search key of '" << v[index] << "' has been generated! \n" << endl;
@@ -57,8 +57,11 @@ int main()
 
 	cout << "***************************|| Searching Algorithm ||*****************************\n" << endl;
 
-	int bResult2 = random->binarySearch(bsort,index);
-	random->printSearchResult(bResult2);
+	lResult = random->linearSearch(bsort,index);
+	random->printSearchResult(lResult);
+
+	bResult = random->binarySearch(bsort,index);
+	random->printSearchResult(bResult);
 
 	return 0;
 } // end main function 
