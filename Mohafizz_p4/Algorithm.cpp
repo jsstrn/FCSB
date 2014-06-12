@@ -40,7 +40,7 @@ int Algorithm::getCompCounter()
 	return compCounter; // Comparison counter
 }
 
-int Algorithm::getcopyCounter()
+int Algorithm::getCopyCounter()
 {
 	return copyCounter; // Copy counter
 }
@@ -50,7 +50,7 @@ void Algorithm::resetCompCounter()
 	compCounter = 0; // Reset comparison counter
 }
 
-void Algorithm::resetcopyCounterer()
+void Algorithm::resetCopyCounter()
 {
 	copyCounter = 0; // Reset copy counter
 }

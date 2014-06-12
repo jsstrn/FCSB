@@ -102,6 +102,7 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
     		else
     		{
     		   temp[k++] = v[rightP++];
+    		   copyCounter++;
     		}
     	}
 		    	while (leftP <= mid) 
@@ -131,25 +132,25 @@ void Algorithm::printVector(vector <int>& v)
 		if(flag==3) 
 		{
 			cout << " was executed by Bubble Sorting! \nwith '"
-			<< getcopyCounter() << "' no. of copies and '" << getCompCounter() 
+			<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
 			<< "' no. of comparisons." << endl;
 		}
 			if(flag==4)
 			{
 				cout << " was executed by Selection Sorting! \nwith '" 
-				<< getcopyCounter() << "' no. of copies and '" << getCompCounter() 
+				<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
 				<< "' no. of comparisons." << endl;
 			}
 				if(flag==5) 
 				{
 					cout << " was executed by Insertion Sorting! \nwith '" 
-					<< getcopyCounter() << "' no. of copies and '" << getCompCounter() 
+					<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
 					<< "' no. of comparisons." << endl;
 				}
 					if(flag==6)
 					{
 						cout << " was executed by Merge Sorting! \nwith '" 
-						<< getcopyCounter() << "' no. of copies and '" << getCompCounter() 
+						<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
 						<< "' no. of comparisons." << endl;
 					}
 
@@ -158,5 +159,5 @@ void Algorithm::printVector(vector <int>& v)
 	cout << endl;
 	flag = 0;
 	resetCompCounter();
-	resetcopyCounterer();
+	resetCopyCounter();
 }
