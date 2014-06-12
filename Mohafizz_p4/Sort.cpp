@@ -99,11 +99,13 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
     		{
     		   temp[k++] = v[leftP++];
     		   copyCounter++;
+    		   compCounter++;
     		}
     		else
     		{
     		   temp[k++] = v[rightP++];
     		   copyCounter++;
+    		   compCounter++;
     		}
     	}
 		    	while (leftP <= mid) 
@@ -121,7 +123,6 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 				    		v[left++] = temp[i];
 				    		copyCounter++;
 				    	}
-	compCounter++;
 }
 
 void Algorithm::displayVector(vector <int>& v)
