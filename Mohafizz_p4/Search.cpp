@@ -29,41 +29,36 @@ int Algorithm::binarySearch(vector <int>& v, int target)
 	while (first<=last)
 	{
 		int mid = (first+last)/2;
-		if(v[mid] == v[target]) 
-		{
+		if(v[mid] == v[target]) {
 			flag = 2;
-			compCounter++;
 			return mid;
+		} else if(v[mid] > v[target]) {
+			last = mid - 1;
+		} else {	
+			first = mid + 1;
 		}
-			else if(v[mid] > v[target])
-			{
-				last = mid - 1;
-				compCounter++;
-			}
-				else 
-				{	
-					first = mid + 1;
-				 	compCounter++;
-				}
+		compCounter++;
 	}
 	return -1;
 }
 
 void Algorithm::printSearchResult(int result)
 {
-	if(result>=0 && flag==1)
+	if (result >= 0 && flag == 1)
 	{
-		cout << "The key has been found by Linear search algorithm with a comparison of";
-		cout << " '" << getCompCounter() << "' times! \n" << endl;
+		cout << "Found using linear search algorithm. ";
+		cout << getCompCounter() << " comparisons made." << endl;
+		cout << endl;
 	} 
-	else if(result>=0 && flag==2)
+	else if (result >= 0 && flag == 2)
 	{
-	 	cout << "The key has been found by Binary search algorithm with a comparison of";
-		cout << " '" << getCompCounter() << "' times! \n" << endl;
+	 	cout << "Found using binary search algorithm. ";
+		cout << getCompCounter() << " comparisons made." << endl;
+		cout << endl;
 	}
 	else
 	{
-		cout << "Error! Due to the unsorted table, Binary search was unable to find the key! \n" << endl;
+		cout << "Not found." << endl;
 	}
 	resetCompCounter();
 	flag = 0;
