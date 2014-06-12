@@ -58,7 +58,7 @@ void Algorithm::printSearchResult(int result)
 	}
 	else
 	{
-		cout << "Not found." << endl;
+		cout << "Not found." << endl << endl;
 	}
 	resetCompCounter();
 	flag = 0;
