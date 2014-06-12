@@ -31,6 +31,7 @@ int Algorithm::binarySearch(vector <int>& v, int target)
 		int mid = (first+last)/2;
 		if(v[mid] == v[target]) {
 			flag = 2;
+			compCounter++;
 			return mid;
 		} else if(v[mid] > v[target]) {
 			last = mid - 1;
@@ -58,15 +59,8 @@ void Algorithm::printSearchResult(int result)
 	}
 	else
 	{
-<<<<<<< HEAD
-		cout << "Not found." << endl << endl;
-=======
-<<<<<<< HEAD
+
 		cout << "The key is not found! \n" << endl;
-=======
-		cout << "Not found." << endl << endl;
->>>>>>> FETCH_HEAD
->>>>>>> temp
 	}
 	resetCompCounter();
 	flag = 0;

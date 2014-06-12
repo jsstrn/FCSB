@@ -143,44 +143,17 @@ void Algorithm::printVector(vector <int>& v)
 		if (i < v.size() - 1)
 			cout << ", ";
 	}
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-		if(flag==3) 
-		{
-			cout << " was executed by Bubble Sorting! \nwith '";
-		}
-			if(flag==4)
-			{
-				cout << " was executed by Selection Sorting! \nwith '"; 
-			}
-				if(flag==5) 
-				{
-					cout << " was executed by Insertion Sorting! \nwith '"; 
-				}
-					if(flag==6)
-					{
-						cout << " was executed by Merge Sorting! \nwith '" ;
-					}
 
-						if(flag != 0)
-						{
-							cout << getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-							<< "' no. of comparisons." << endl;
-						}
+    if(flag==0) cout << " table is unsorted!" << endl;
 
-	                	if(flag==0) cout << " table is unsorted!" << endl;
-=======
-
->>>>>>> temp
 	/* assign type of sort used */
 	string sortType;
 	if (flag == 3) sortType = "Bubble sort";
 	if (flag == 4) sortType = "Selection sort";
 	if (flag == 5) sortType = "Insertion sort";
 	if (flag == 6) sortType = "Merge sort";
-<<<<<<< HEAD
+
 
 	/* print message */
 	cout << endl;
@@ -188,19 +161,9 @@ void Algorithm::printVector(vector <int>& v)
 	cout << " Comparisons made: " << getCompCounter() << endl;
 	cout << "      Copies made: " << getCopyCounter() << endl;
 	cout << endl;
-=======
->>>>>>> FETCH_HEAD
 
-	/* print message */
-	cout << endl;
-	cout << "Sorting algorithm: " << sortType << endl;
-	cout << " Comparisons made: " << getCompCounter() << endl;
-	cout << "      Copies made: " << getCopyCounter() << endl;
-	cout << endl;
->>>>>>> temp
 
 	/* reset counters*/
 	flag = 0;
 	resetCompCounter();
-	resetCopyCounter();
 }
