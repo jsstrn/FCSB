@@ -45,14 +45,14 @@ void Algorithm::printSearchResult(int result)
 {
 	if (result >= 0 && flag == 1)
 	{
-		cout << "Element #" << result << endl;
+		cout << result + 1 << endl;
 		cout << "Found using linear search algorithm. ";
 		cout << getCompCounter() << " comparisons made." << endl;
 		cout << endl;
 	} 
 	else if (result >= 0 && flag == 2)
 	{
-		cout << "Element #" << result << endl;
+		cout << result + 1 << endl;
 	 	cout << "Found using binary search algorithm. ";
 		cout << getCompCounter() << " comparisons made." << endl;
 		cout << endl;
