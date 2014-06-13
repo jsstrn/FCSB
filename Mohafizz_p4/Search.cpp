@@ -1,5 +1,5 @@
 /*	
- *	Developed by Mohamed Hafiz a1674846
+ *	Developed by Faisal, Hafiz, and Jesstern
  *	Bachelor of Computer Science, University of Adelaide
  */
 
@@ -8,63 +8,69 @@
 
 int Algorithm::linearSearch(vector <int>& v, int target)
 {
-	for(int i=0; i < v.size(); i++)
+	cout << "Searching for: " << target << ". ";
+	for (int i = 0; i < v.size(); i++)
 	{
-		if(v[i]==v[target])
+		compCounter++;
+		if (v[i] == target)
 		{
 			flag = 1;
-			compCounter++;
 			return i;
 		}
-		compCounter++;		
 	}
 	return -1;
 }
 
 int Algorithm::binarySearch(vector <int>& v, int target)
 {
+	cout << "Searching for: " << target << ". ";
 	int first = 0;
 	int last = v.size() - 1;
 	
 	while (first<=last)
 	{
 		int mid = (first+last)/2;
-		if(v[mid] == v[target]) 
-		{
-			flag = 2;
+		if(v[mid] == target) {
 			compCounter++;
+			flag = 2;
 			return mid;
+		} else if(v[mid] > target) {
+			last = mid - 1;
+		} else {	
+			first = mid + 1;
 		}
-			else if(v[mid] > v[target])
-			{
-				last = mid - 1;
-				compCounter++;
-			}
-				else 
-				{	
-					first = mid + 1;
-				 	compCounter++;
-				}
+		compCounter++;
 	}
 	return -1;
 }
 
 void Algorithm::printSearchResult(int result)
 {
-	if(result>=0 && flag==1)
+	result += 1;
+	string position = "th";
+	if (result == 1) position = "st";
+	if (result == 2) position = "nd";
+	if (result == 3) position = "rd";
+
+	if (result >= 0 && flag == 1)
 	{
-		cout << "The key has been found by Linear search algorithm with a comparison of";
-		cout << " '" << getCompCounter() << "' times! \n" << endl;
+		cout << "Comparisons made: " << getCompCounter()<< endl;
+		cout << "Found using linear search algorithm. ";
+		cout << "It's the " << result << position << " element in the table." << endl;
+		cout << endl;
 	} 
-	else if(result>=0 && flag==2)
+	else if (result >= 0 && flag == 2)
 	{
-	 	cout << "The key has been found by Binary search algorithm with a comparison of";
-		cout << " '" << getCompCounter() << "' times! \n" << endl;
+		cout << "Comparisons made: " << getCompCounter()<< endl;
+	 	cout << "Found using binary search algorithm. ";
+	 	cout << "It's the " << result << position << " element in the table." << endl;
+		cout << endl;
 	}
 	else
 	{
-		cout << "Error! Due to the unsorted table, Binary search was unable to find the key! \n" << endl;
+		cout << "The key was not found! \n" << endl;
 	}
 	resetCompCounter();
+	result = 0;
 	flag = 0;
 }

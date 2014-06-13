@@ -1,10 +1,10 @@
 /*	
- *	Developed by Mohamed Hafiz a1674846
+ *	Developed by Faisal, Hafiz, and Jesstern
  *	Bachelor of Computer Science, University of Adelaide
  */
 
-#ifndef LIBRARIES_H
-#define LIBRARIES_H
+#ifndef LIB_H
+#define LIB_H
 
 /*********************************************/
 /*               C++ Libraries               */

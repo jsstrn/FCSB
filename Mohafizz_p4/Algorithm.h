@@ -1,5 +1,5 @@
 /*	
- *	Developed by Mohamed Hafiz a1674846
+ *	Developed by Faisal, Hafiz, and Jesstern
  *	Bachelor of Computer Science, University of Adelaide
  */
 
@@ -48,7 +48,10 @@ public:
 
 	vector<int> mergesort(vector<int>&, int, int);
 	void merge(vector<int>&, int, int, int);
+	void quicksort(vector <int>&, int, int);
+	int partition(vector <int>&, int, int);
 	
+	void displayVector(vector<int>&);
 	void printVector(vector<int>&);
 	
 }; // end base class

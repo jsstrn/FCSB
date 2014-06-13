@@ -1,5 +1,5 @@
 /*	
- *	Developed by Mohamed Hafiz a1674846
+ *	Developed by Faisal, Hafiz, and Jesstern
  *	Bachelor of Computer Science, University of Adelaide
  */
 
@@ -48,6 +48,7 @@ vector <int> Algorithm::insertionsort(vector<int>& v)
 	{
         // Initialize a local insertion index
         int insert = index;
+        // Sorts in ascending
         while (insert > 0 && v[insert - 1] > v[insert]) 
         {
             swap(v,insert,insert-1);
@@ -58,7 +59,7 @@ vector <int> Algorithm::insertionsort(vector<int>& v)
     flag = 5;
     return v;
 }
-
+ 
 void Algorithm::swap(vector<int>& v, int i, int j)
 {
 	int temp = v[i];
@@ -86,78 +87,107 @@ vector<int> Algorithm::mergesort(vector<int>& v, int left, int right)
 void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 {
    	//the two subgroups to be merged are v[left to mid], v[mid+1 to right]
-    int len = right-left+1;
+	int len = right - left + 1;
 	int temp[len];
 	int leftP = left;
 	int rightP = mid+1;
 	int k=0;
-    	//merge the data items by copying the smaller to the temp 
-    	while (leftP <= mid && rightP <= right)
-    	{
-    		if (v[leftP] < v[rightP])
-    		{
-    		   temp[k++] = v[leftP++];
-    		   copyCounter++;
-    		}
-    		else
-    		{
-    		   temp[k++] = v[rightP++];
-    		   copyCounter++;
-    		}
-    	}
-		    	while (leftP <= mid) 
-		    	{
-		    		temp[k++] = v[leftP++];
-		    		copyCounter++;
-		    	}
-			    	while (rightP <= right)
-			    	{
-			    		temp[k++] = v[rightP++];
-			    		copyCounter++;
-			    	}
-				    	for (int i=0; i< len;i++)
-				    	{
-				    		v[left++] = temp[i];
-				    		copyCounter++;
-				    	}
-	compCounter++;
+    //merge the data items by copying the smaller to the temp 
+	while (leftP <= mid && rightP <= right)
+	{
+		if (v[leftP] < v[rightP])
+		{
+			temp[k++] = v[leftP++];
+		}
+		else
+		{
+			temp[k++] = v[rightP++];
+		}
+		copyCounter++;
+		compCounter++;
+	}
+	while (leftP <= mid) 
+	{
+		temp[k++] = v[leftP++];
+		copyCounter++;
+	}
+	while (rightP <= right)
+	{
+		temp[k++] = v[rightP++];
+		copyCounter++;
+	}
+	for (int i = 0; i < len; i++)
+	{
+		v[left++] = temp[i];
+		copyCounter++;
+	}
+}
+
+void Algorithm::quicksort(vector <int>& v, int start, int end) 
+{
+	if (start < end) {
+		int partition_index = partition(v, start, end);
+		quicksort(v, start, partition_index - 1);
+		quicksort(v, partition_index + 1, end);
+	}
+	flag = 7;
+}
+
+int Algorithm::partition(vector <int>& v, int start, int end)
+{
+	int pivot = v[end]; // assign last value in vector as pivot
+	int partition_index = start;
+	for (int i = start; i < end; ++i)
+	{
+		if (v[i] <= pivot) 
+		{
+			swap(v, i, partition_index); //values less than pivot will be swapped
+			partition_index++;
+		}
+		compCounter++;
+	}
+	swap(v, partition_index, end); // place the pivot in the middle of the vector
+	return partition_index;
+}
+
+void Algorithm::displayVector(vector <int>& v)
+{
+	for (int i = 0; i < v.size(); ++i)
+	{
+		cout << v[i];
+		if (i < v.size() - 1)
+			cout << ", ";
+	}
+	cout << endl;
 }
 
 void Algorithm::printVector(vector <int>& v)
 {
 	for(int i=0; i < v.size(); i++)
 	{
-		cout << v[i] << ",";
+		cout << v[i];
+		if (i < v.size() - 1)
+			cout << ", ";
 	}
-		if(flag==3) 
-		{
-			cout << " was executed by Bubble Sorting! \nwith '"
-			<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-			<< "' no. of comparisons." << endl;
-		}
-			if(flag==4)
-			{
-				cout << " was executed by Selection Sorting! \nwith '" 
-				<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-				<< "' no. of comparisons." << endl;
-			}
-				if(flag==5) 
-				{
-					cout << " was executed by Insertion Sorting! \nwith '" 
-					<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-					<< "' no. of comparisons." << endl;
-				}
-					if(flag==6)
-					{
-						cout << " was executed by Merge Sorting! \nwith '" 
-						<< getCopyCounter() << "' no. of copies and '" << getCompCounter() 
-						<< "' no. of comparisons." << endl;
-					}
 
-	                	if(flag==0) cout << " table is unsorted!" << endl;
+	/* assign type of sort used */
+	string sortType;
+	if (flag == 3) sortType = "Bubble sort";
+	if (flag == 4) sortType = "Selection sort";
+	if (flag == 5) sortType = "Insertion sort";
+	if (flag == 6) sortType = "Merge sort";
+	if (flag == 7) sortType = "Quick sort";
 
+	/* print message */
 	cout << endl;
+	cout << "Sorting algorithm: " << sortType << endl;
+	cout << " Comparisons made: " << getCompCounter() << endl;
+	cout << "      Copies made: " << getCopyCounter() << endl;
+	cout << endl;
+
+
+	/* reset counters*/
 	flag = 0;
-	resetCompCounter();
 	resetCopyCounter();
+	resetCompCounter();
 }
