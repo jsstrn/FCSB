@@ -8,7 +8,7 @@
 
 int Algorithm::linearSearch(vector <int>& v, int target)
 {
-	cout << "Searching for: " << target << endl;
+	cout << "Searching for: " << target << ". ";
 	for (int i = 0; i < v.size(); i++)
 	{
 		compCounter++;
@@ -23,7 +23,7 @@ int Algorithm::linearSearch(vector <int>& v, int target)
 
 int Algorithm::binarySearch(vector <int>& v, int target)
 {
-	cout << "Searching for: " << target << endl;
+	cout << "Searching for: " << target << ". ";
 	int first = 0;
 	int last = v.size() - 1;
 	
@@ -53,16 +53,16 @@ void Algorithm::printSearchResult(int result)
 
 	if (result >= 0 && flag == 1)
 	{
+		cout << "Comparisons made: " << getCompCounter()<< endl;
 		cout << "Found using linear search algorithm. ";
 		cout << "It's the " << result << position << " element in the table." << endl;
-		cout << getCompCounter() << " comparisons made." << endl;
 		cout << endl;
 	} 
 	else if (result >= 0 && flag == 2)
 	{
+		cout << "Comparisons made: " << getCompCounter()<< endl;
 	 	cout << "Found using binary search algorithm. ";
 	 	cout << "It's the " << result << position << " element in the table." << endl;
-		cout << getCompCounter() << " comparisons made." << endl;
 		cout << endl;
 	}
 	else
