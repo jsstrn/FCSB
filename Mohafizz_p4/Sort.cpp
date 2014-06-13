@@ -87,40 +87,39 @@ vector<int> Algorithm::mergesort(vector<int>& v, int left, int right)
 void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 {
    	//the two subgroups to be merged are v[left to mid], v[mid+1 to right]
-    int len = right-left+1;
-	int temp[len];
+	int temp[v.size()];
 	int leftP = left;
 	int rightP = mid+1;
 	int k=0;
-    	//merge the data items by copying the smaller to the temp 
-    	while (leftP <= mid && rightP <= right)
-    	{
-    		if (v[leftP] < v[rightP])
-    		{
-    		   temp[k++] = v[leftP++];
-    		}
-    		else
-    		{
-    		   temp[k++] = v[rightP++];
-    		}
-    		copyCounter++;
-    		compCounter++;
-    	}
-    	while (leftP <= mid) 
-    	{
-    		temp[k++] = v[leftP++];
-    		copyCounter++;
-    	}
-    	while (rightP <= right)
-    	{
-    		temp[k++] = v[rightP++];
-    		copyCounter++;
-    	}
-    	for (int i=0; i< len;i++)
-    	{
-    		v[left++] = temp[i];
-    		copyCounter++;
-    	}
+    //merge the data items by copying the smaller to the temp 
+	while (leftP <= mid && rightP <= right)
+	{
+		if (v[leftP] < v[rightP])
+		{
+			temp[k++] = v[leftP++];
+		}
+		else
+		{
+			temp[k++] = v[rightP++];
+		}
+		copyCounter++;
+		compCounter++;
+	}
+	while (leftP <= mid) 
+	{
+		temp[k++] = v[leftP++];
+		copyCounter++;
+	}
+	while (rightP <= right)
+	{
+		temp[k++] = v[rightP++];
+		copyCounter++;
+	}
+	for (int i = 0; i < v.size(); i++)
+	{
+		v[left++] = temp[i];
+		copyCounter++;
+	}
 }
 
 void Algorithm::newMergeSort()
