@@ -1,5 +1,5 @@
 /*
- *	Developed by Mohamed Hafiz a1674846
+ *	Developed by Faisal, Hafiz, and Jesstern
  *	Bachelor of Computer Science, University of Adelaide
  */
 
