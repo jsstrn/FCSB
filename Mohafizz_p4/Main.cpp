@@ -60,8 +60,8 @@ int main()
 	/* display sorted vector */
 	random->displayVector(bsort); cout << endl;
 	/* linear search */
-	int lResult2 = random->linearSearch(bsort,index);
-	random->printSearchResult(lResult2);
+	lResult = random->linearSearch(bsort,index);
+	random->printSearchResult(lResult);
 	/* binary search */
 	bResult = random->binarySearch(bsort,index);
 	random->printSearchResult(bResult);
