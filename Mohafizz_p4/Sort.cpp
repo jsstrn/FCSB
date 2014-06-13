@@ -98,31 +98,29 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
     		if (v[leftP] < v[rightP])
     		{
     		   temp[k++] = v[leftP++];
-    		   copyCounter++;
-    		   compCounter++;
     		}
     		else
     		{
     		   temp[k++] = v[rightP++];
-    		   copyCounter++;
-    		   compCounter++;
     		}
+    		copyCounter++;
+    		compCounter++;
     	}
-		    	while (leftP <= mid) 
-		    	{
-		    		temp[k++] = v[leftP++];
-		    		copyCounter++;
-		    	}
-			    	while (rightP <= right)
-			    	{
-			    		temp[k++] = v[rightP++];
-			    		copyCounter++;
-			    	}
-				    	for (int i=0; i< len;i++)
-				    	{
-				    		v[left++] = temp[i];
-				    		copyCounter++;
-				    	}
+    	while (leftP <= mid) 
+    	{
+    		temp[k++] = v[leftP++];
+    		copyCounter++;
+    	}
+    	while (rightP <= right)
+    	{
+    		temp[k++] = v[rightP++];
+    		copyCounter++;
+    	}
+    	for (int i=0; i< len;i++)
+    	{
+    		v[left++] = temp[i];
+    		copyCounter++;
+    	}
 }
 
 void Algorithm::displayVector(vector <int>& v)
