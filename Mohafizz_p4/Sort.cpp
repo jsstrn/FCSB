@@ -123,6 +123,33 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 	}
 }
 
+void Algorithm::quicksort(vector <int>& v, int start, int end) 
+{
+	if (start < end) {
+		int partition_index = partition(v, start, end);
+		quicksort(v, start, partition_index - 1);
+		quicksort(v, partition_index + 1, end);
+	}
+	flag = 7;
+}
+
+int Algorithm::partition(vector <int>& v, int start, int end)
+{
+	int pivot = v[end]; // assign last value in vector as pivot
+	int partition_index = start;
+	for (int i = start; i < end; ++i)
+	{
+		if (v[i] <= pivot) 
+		{
+			swap(v, i, partition_index); //values less than pivot will be swapped
+			partition_index++;
+		}
+		compCounter++;
+	}
+	swap(v, partition_index, end); // place the pivot in the middle of the vector
+	return partition_index;
+}
+
 void Algorithm::displayVector(vector <int>& v)
 {
 	for (int i = 0; i < v.size(); ++i)
@@ -149,6 +176,7 @@ void Algorithm::printVector(vector <int>& v)
 	if (flag == 4) sortType = "Selection sort";
 	if (flag == 5) sortType = "Insertion sort";
 	if (flag == 6) sortType = "Merge sort";
+	if (flag == 7) sortType = "Quick sort";
 
 	/* print message */
 	cout << endl;

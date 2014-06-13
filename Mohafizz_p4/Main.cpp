@@ -52,6 +52,10 @@ int main()
 	vector <int> mergesort = random->getrandomVariables();
 	random->mergesort(mergesort,0,mergesort.size()-1);
 	random->printVector(mergesort);
+	/* quick sort */
+	vector <int> quicksort = random->getrandomVariables();
+	random->quicksort(quicksort, 0, quicksort.size() - 1);
+	random->printVector(quicksort);
 
 	// vector <int> testcase = random->getrandomVariables();
 	// random->printVector(testcase);
