@@ -24,15 +24,15 @@ int main()
 	/* display the vector */
 	random->displayVector(v);
 	/* generate a search key*/
-	int index = random->generateKey(v);
-	cout << endl << "Search key: " << v[index] << endl << endl;
+	int searchKey = v[random->generateKey(v)];
+	cout << endl << "Search key: " << searchKey << endl << endl;
 
 	cout << "***************************|| Searching Algorithm ||*****************************\n" << endl;
 	/* linear search */
-	int lResult = random->linearSearch(v,index);
+	int lResult = random->linearSearch(v,searchKey);
 	random->printSearchResult(lResult);
 	/* binary search */
-	int bResult = random->binarySearch(v,index);
+	int bResult = random->binarySearch(v,searchKey);
 	random->printSearchResult(bResult);
 
 	cout << "****************************|| Sorting Algorithm ||******************************\n" << endl;
@@ -60,10 +60,10 @@ int main()
 	/* display sorted vector */
 	random->displayVector(bsort); cout << endl;
 	/* linear search */
-	lResult = random->linearSearch(bsort,index);
+	lResult = random->linearSearch(bsort,searchKey);
 	random->printSearchResult(lResult);
 	/* binary search */
-	bResult = random->binarySearch(bsort,index);
+	bResult = random->binarySearch(bsort,searchKey);
 	random->printSearchResult(bResult);
 
 	return 0;

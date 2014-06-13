@@ -11,9 +11,11 @@ int Algorithm::linearSearch(vector <int>& v, int target)
 	for (int i = 0; i < v.size(); i++)
 	{
 		compCounter++;
-		if (v[i] == v[target])
+		if (v[i] == target)
 		{
 			flag = 1;
+			cout << "       value found: " << v[i] << endl;
+			cout << "value in the table: " << target << endl;
 			return i;
 		}
 	}
@@ -28,10 +30,10 @@ int Algorithm::binarySearch(vector <int>& v, int target)
 	while (first<=last)
 	{
 		int mid = (first+last)/2;
-		if(v[mid] == v[target]) {
+		if(v[mid] == target) {
 			flag = 2;
 			return mid;
-		} else if(v[mid] > v[target]) {
+		} else if(v[mid] > target) {
 			last = mid - 1;
 		} else {	
 			first = mid + 1;
