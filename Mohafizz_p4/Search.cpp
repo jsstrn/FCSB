@@ -8,15 +8,14 @@
 
 int Algorithm::linearSearch(vector <int>& v, int target)
 {
-	for(int i=0; i < v.size(); i++)
+	for (int i = 0; i < v.size(); i++)
 	{
-		if(v[i]==v[target])
+		compCounter++;
+		if (v[i] == v[target])
 		{
 			flag = 1;
-			compCounter++;
 			return i;
 		}
-		compCounter++;		
 	}
 	return -1;
 }
@@ -31,7 +30,6 @@ int Algorithm::binarySearch(vector <int>& v, int target)
 		int mid = (first+last)/2;
 		if(v[mid] == v[target]) {
 			flag = 2;
-			compCounter++;
 			return mid;
 		} else if(v[mid] > v[target]) {
 			last = mid - 1;
@@ -47,21 +45,23 @@ void Algorithm::printSearchResult(int result)
 {
 	if (result >= 0 && flag == 1)
 	{
+		cout << "Element #" << result << endl;
 		cout << "Found using linear search algorithm. ";
 		cout << getCompCounter() << " comparisons made." << endl;
 		cout << endl;
 	} 
 	else if (result >= 0 && flag == 2)
 	{
+		cout << "Element #" << result << endl;
 	 	cout << "Found using binary search algorithm. ";
 		cout << getCompCounter() << " comparisons made." << endl;
 		cout << endl;
 	}
 	else
 	{
-
-		cout << "The key is not found! \n" << endl;
+		cout << "The key was not found! \n" << endl;
 	}
 	resetCompCounter();
+	result = 0;
 	flag = 0;
 }
