@@ -48,6 +48,8 @@ public:
 
 	vector<int> mergesort(vector<int>&, int, int);
 	void merge(vector<int>&, int, int, int);
+	void newMergeSort();
+	void newMerge(vector<int>&,vector<int>&,vector<int>&);
 	
 	void displayVector(vector<int>&);
 	void printVector(vector<int>&);

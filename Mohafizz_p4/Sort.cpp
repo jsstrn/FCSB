@@ -123,6 +123,32 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
     	}
 }
 
+void Algorithm::newMergeSort()
+{
+
+}
+
+void Algorithm::newMerge(vector <int>& V, vector<int> L, vector<int> R) 
+{
+	int v = 0;
+	int l = 0;
+	int r = 0;
+
+	while (l <= L.size() - 1 && r <= R.size() - 1)
+	{
+		if (L[l] < R[r])
+		{
+			V[v] = L[l];
+			l++
+		} else 
+		{
+			V[v] = R[r];
+			r++;
+		}
+		v++;
+	}
+}
+
 void Algorithm::displayVector(vector <int>& v)
 {
 	for (int i = 0; i < v.size(); ++i)
