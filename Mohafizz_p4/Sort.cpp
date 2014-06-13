@@ -127,7 +127,7 @@ void Algorithm::newMergeSort()
 
 }
 
-void Algorithm::newMerge(vector <int>& V, vector<int> L, vector<int> R) 
+void Algorithm::newMerge(vector <int>& V, vector<int>& L, vector<int>& R) 
 {
 	int v = 0;
 	int l = 0;
@@ -138,7 +138,7 @@ void Algorithm::newMerge(vector <int>& V, vector<int> L, vector<int> R)
 		if (L[l] < R[r])
 		{
 			V[v] = L[l];
-			l++
+			l++;
 		} else 
 		{
 			V[v] = R[r];

@@ -31,6 +31,7 @@ int Algorithm::binarySearch(vector <int>& v, int target)
 	{
 		int mid = (first+last)/2;
 		if(v[mid] == target) {
+			compCounter++;
 			flag = 2;
 			return mid;
 		} else if(v[mid] > target) {
