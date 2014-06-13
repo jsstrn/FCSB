@@ -166,5 +166,6 @@ void Algorithm::printVector(vector <int>& v)
 
 	/* reset counters*/
 	flag = 0;
+	resetCopyCounter();
 	resetCompCounter();
 }
