@@ -145,16 +145,12 @@ void Algorithm::printVector(vector <int>& v)
 			cout << ", ";
 	}
 
-
-    if(flag==0) cout << " table is unsorted!" << endl;
-
 	/* assign type of sort used */
 	string sortType;
 	if (flag == 3) sortType = "Bubble sort";
 	if (flag == 4) sortType = "Selection sort";
 	if (flag == 5) sortType = "Insertion sort";
 	if (flag == 6) sortType = "Merge sort";
-
 
 	/* print message */
 	cout << endl;
