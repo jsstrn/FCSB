@@ -87,7 +87,8 @@ vector<int> Algorithm::mergesort(vector<int>& v, int left, int right)
 void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 {
    	//the two subgroups to be merged are v[left to mid], v[mid+1 to right]
-	int temp[v.size()];
+	int len = right - left + 1;
+	int temp[len];
 	int leftP = left;
 	int rightP = mid+1;
 	int k=0;
@@ -115,36 +116,10 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 		temp[k++] = v[rightP++];
 		copyCounter++;
 	}
-	for (int i = 0; i < v.size(); i++)
+	for (int i = 0; i < len; i++)
 	{
 		v[left++] = temp[i];
 		copyCounter++;
-	}
-}
-
-void Algorithm::newMergeSort()
-{
-
-}
-
-void Algorithm::newMerge(vector <int>& V, vector<int>& L, vector<int>& R) 
-{
-	int v = 0;
-	int l = 0;
-	int r = 0;
-
-	while (l <= L.size() - 1 && r <= R.size() - 1)
-	{
-		if (L[l] < R[r])
-		{
-			V[v] = L[l];
-			l++;
-		} else 
-		{
-			V[v] = R[r];
-			r++;
-		}
-		v++;
 	}
 }
 
