@@ -10,33 +10,52 @@ struct Node
 /* * * * * Function Declarations * * * * */
 
 /* Q1 — Find the length of a list  */
-int listLength(Node* firstNode);
+int listLength(Node*);
 
 /* Q2 — Add a new node at the head of a list */
-void listAddFront(Node* &firstNode, Node* newNode);
+void listAddFront(Node* &, Node*);
 
 /* Q3 — Find a node in a list */
-int listFind(Node* firstNode, int d);
+int listFind(Node*, int);
 
 /* Q4 — Add a new node at the tail of a list  */
-void listAddBack(Node* &firstNode, Node* newNode);
+void listAddBack(Node* &, Node*);
 
 /* Q5 — Delete a node from a list */
-Node* listDelete(Node* &firstNode, int value);
+Node* listDelete(Node* &, int);
 
 /* Creates nodes in a list */
 Node* listCreate(int);
 
 /* Displays each node in a list */
-void listDisplay(Node* firstNode);
+void listDisplay(Node*);
 
 /* * * * * * * Main Function * * * * * * */
 
 int main()
 {
+	// create 10 nodes
 	Node* firstNode = listCreate(10);
 	listDisplay(firstNode);
-	cout << listLength(firstNode) <<endl;
+
+	/* Q1 — Find the length of a list  */
+	int length = listLength(firstNode);
+	cout << "There are " << length << " nodes in this list." << endl;
+	
+	/* Q2 — Add a new node at the head of a list */
+	Node* frontNode = new Node();
+	frontNode->data = 11;
+	frontNode->next = NULL;
+	listAddFront(firstNode, frontNode);
+	listDisplay(firstNode);
+
+	/* Q4 — Add a new node at the tail of a list  */
+	Node* backNode = new Node();
+	backNode->data = 99;
+	backNode->next = NULL;
+	listAddBack(firstNode, backNode);
+	listDisplay(firstNode);
+
 	delete firstNode;
 	return 0;
 }
@@ -57,17 +76,25 @@ int listLength(Node* firstNode) {
 
 /* Q2 — Add a new node at the head of a list */
 void listAddFront(Node* &firstNode, Node* newNode) {
-
+	newNode->next = firstNode;
+	firstNode = newNode;
 }
 
 /* Q3 — Find a node in a list */
-int listFind(Node* firstNode, int d) {
+int listFind(Node* firstNode, int value) {
 
 }
 
 /* Q4 — Add a new node at the tail of a list  */
 void listAddBack(Node* &firstNode, Node* newNode) {
-
+	Node* currentNode = firstNode;
+	while (currentNode != NULL) {
+		if (currentNode->next == NULL) {
+			currentNode->next = newNode;
+			newNode->next = NULL;
+		}
+		currentNode = currentNode->next;
+	}
 }
 
 /* Q5 — Delete a node from a list */
@@ -129,7 +156,7 @@ that contains d cant be found, the function returns NULL. Test your function
 carefully! Try finding a value in an empty list, a list with items already in
 it, and a list that does not contain the target value. 
 
-Q4 — Add a new node at the tail of a list Write a function listAddback with signature void
+Q4 — Add a new node at the tail of a list Write a function listAddBack with signature void
 listAddBack(node* &head, node* newNode): The function takes a new node,
 newNode (previously created with a call to the newN ode function), and adds it
 to the back of the list (after the last node in the list) whose head is given
