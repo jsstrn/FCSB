@@ -16,7 +16,7 @@ int listLength(Node*);
 void listAddFront(Node* &, Node*);
 
 /* Q3 — Find a node in a list */
-int listFind(Node*, int);
+Node* listFind(Node*, int);
 
 /* Q4 — Add a new node at the tail of a list  */
 void listAddBack(Node* &, Node*);
@@ -49,6 +49,10 @@ int main()
 	listAddFront(firstNode, frontNode);
 	listDisplay(firstNode);
 
+	/* Q3 — Find a node in a list */
+	Node* findNode = listFind(firstNode, 5);
+	listDisplay(findNode);
+
 	/* Q4 — Add a new node at the tail of a list  */
 	Node* backNode = new Node();
 	backNode->data = 99;
@@ -56,7 +60,11 @@ int main()
 	listAddBack(firstNode, backNode);
 	listDisplay(firstNode);
 
-	delete firstNode;
+	/* Q5 — Delete a node from a list */
+	listDelete(firstNode, 3);
+	listDisplay(firstNode);
+
+	delete firstNode, frontNode, backNode, findNode;
 	return 0;
 }
 
@@ -81,8 +89,16 @@ void listAddFront(Node* &firstNode, Node* newNode) {
 }
 
 /* Q3 — Find a node in a list */
-int listFind(Node* firstNode, int value) {
-
+Node* listFind(Node* firstNode, int value) {
+	Node* currentNode = firstNode;
+	while (currentNode != NULL) {
+		if (currentNode->data == value) {
+			currentNode->next = NULL;
+			return currentNode;
+		}
+		currentNode = currentNode->next;
+	}
+	return NULL;
 }
 
 /* Q4 — Add a new node at the tail of a list  */
@@ -99,7 +115,23 @@ void listAddBack(Node* &firstNode, Node* newNode) {
 
 /* Q5 — Delete a node from a list */
 Node* listDelete(Node* &firstNode, int value) {
-
+	Node* currentNode = firstNode;
+	Node* previousNode = firstNode;
+	while (currentNode != NULL) {
+		if (currentNode->data == value) {
+			if (currentNode == firstNode) {
+				delete firstNode;
+				firstNode = firstNode->next;
+			} else {
+				previousNode->next = currentNode->next;
+			}
+			currentNode->next = NULL;
+			return currentNode;
+		}
+		previousNode = currentNode;
+		currentNode = currentNode->next;
+	}
+	return NULL; // value not found
 }
 
 /* Creates a predefined number of nodes in a list */
