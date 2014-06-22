@@ -29,7 +29,7 @@ Node* listDelete(Node* &, int);
 Node* listCreate(int);
 
 /* Displays each node in a list */
-void listDisplay(Node* &);
+void listDisplay(Node*);
 
 /* * * * * * * Main Function * * * * * * */
 
@@ -155,7 +155,7 @@ Node* listCreate(int size) {
 }
 
 /* Displays each node in a list */
-void listDisplay(Node* &firstNode) {
+void listDisplay(Node* firstNode) {
 	Node* currentNode = firstNode;
 	if (currentNode == NULL) cout << "List is empty!";
 	while (currentNode != NULL) {
