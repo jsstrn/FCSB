@@ -123,7 +123,6 @@ Node* listFind(Node* firstNode, int value) {
 	Node* currentNode = firstNode;
 	while (currentNode != NULL) {
 		if (currentNode->data == value) {
-			//currentNode->next = NULL;        //this is the culprit
 			return currentNode;
 		}
 		currentNode = currentNode->next;
