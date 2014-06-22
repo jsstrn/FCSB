@@ -34,44 +34,56 @@ void listDisplay(Node*);
 
 int main()
 {
-	//create 10 nodes
-	//Node* firstNode = listCreate(10);
 	Node* firstNode = listCreate(0);   //To test building an empty list
 	listDisplay(firstNode);
 
 	/* Q1 — Find the length of a list  */
 	int length = listLength(firstNode);
 	cout << "There are " << length << " nodes in this list." << endl;
+	cout << endl;
 	
 	/* Q2 — Add a new node at the head of a list */
+	int input=0;
 	Node* frontNode = new Node();
-	frontNode->data = 11;
+	cout << "Enter a value to add to the front of the list:" << endl;
+	cin >> input;
+	frontNode->data = input;
 	frontNode->next = NULL;
 	listAddFront(firstNode, frontNode);
 	listDisplay(firstNode);
+	
+	// Check the length of list again after creating 1 value to list
+	length = listLength(firstNode);
+	cout << "There are " << length << " nodes in this list." << endl;
+	cout << endl;
+
 
 	/* Q3 — Find a node in a list */
-	Node* findNode = listFind(firstNode, 11);
+	cout << "Enter search value to search in link list:" << endl;
+	cin >> input;
+	Node* findNode = listFind(firstNode, input);
 	if(findNode!=NULL) cout << "Node "<< findNode->data << " is found!" << endl;
-	else cout << "Node is not in the list!" << endl;
-	//else listDisplay(findNode);
+	else cout << "Node is not found!" << endl;
 
 
 	/* Q4 — Add a new node at the tail of a list  */
 	Node* backNode = new Node();
-	backNode->data = 99;
+	cout << "Enter a value to add to the back of the link list:" << endl;
+	cin >> input;
+	backNode->data = input;
 	backNode->next = NULL;
 	listAddBack(firstNode, backNode);
 	listDisplay(firstNode);
 
 	/* Q5 — Delete a node from a list */
-	Node* deleteNode =listDelete(firstNode, 99);
+	cout << "Enter a value to delete from link list:" << endl;
+	cin >> input;
+	Node* deleteNode =listDelete(firstNode, input);
 	if(deleteNode!=NULL) cout << "Node "<< deleteNode->data << " is found and deleted!" << endl;
 	else cout << "Node is not in the list!" << endl;
 	listDisplay(firstNode);
 
 	delete firstNode;
-	// delete frontNode, backNode, findNode;
 	return 0;
 }
 
