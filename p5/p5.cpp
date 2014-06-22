@@ -51,6 +51,7 @@ int main()
 	frontNode->next = NULL;
 	listAddFront(firstNode, frontNode);
 	listDisplay(firstNode);
+	cout << endl;
 	
 	// Check the length of list again after creating 1 value to list
 	length = listLength(firstNode);
@@ -64,6 +65,7 @@ int main()
 	Node* findNode = listFind(firstNode, input);
 	if(findNode!=NULL) cout << "Node "<< findNode->data << " is found!" << endl;
 	else cout << "Node is not found!" << endl;
+	cout << endl;
 
 
 	/* Q4 — Add a new node at the tail of a list  */
@@ -74,6 +76,7 @@ int main()
 	backNode->next = NULL;
 	listAddBack(firstNode, backNode);
 	listDisplay(firstNode);
+	cout << endl;
 
 	/* Q5 — Delete a node from a list */
 	cout << "Enter a value to delete from link list:" << endl;
@@ -167,9 +170,12 @@ Node* listCreate(int size) {
 
 /* Displays each node in a list */
 void listDisplay(Node* firstNode) {
+	int counter=0;
 	Node* currentNode = firstNode;
 	if (currentNode == NULL) cout << "List is empty!";
 	while (currentNode != NULL) {
+		if (counter == 0) cout << "List: ";
+		counter++;
 		cout << currentNode->data;
 		if (currentNode->next != NULL) cout << " -> ";
 		currentNode = currentNode->next;
