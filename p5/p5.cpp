@@ -1,3 +1,11 @@
+/*	
+ *	Developed by Faisal, Hafiz, and Jesstern
+ *	Bachelor of Computer Science, University of Adelaide
+ *	All Rights Reserved. Copyright (C) Jesstern Rays
+ *	This work is licensed under CC BY-SA 4.0
+ */
+
+
 #include <iostream>
 using namespace std;
 
