@@ -86,6 +86,12 @@ int main()
 	listDisplay(firstNode);
 	cout << endl;
 
+	// Check the length of list again after creating 1 value to list
+	length = listLength(firstNode);
+	cout << "There are " << length << " nodes in this list." << endl;
+	cout << endl;
+
+
 	/* Q5 — Delete a node from a list */
 	cout << "Enter a value to delete from link list:" << endl;
 	cin >> input;
