@@ -86,7 +86,7 @@ int main()
 	listDisplay(firstNode);
 	cout << endl;
 
-	// Check the length of list again after creating 1 value to list
+	// Check the length of list again after creating 2 value to list
 	length = listLength(firstNode);
 	cout << "There are " << length << " nodes in this list." << endl;
 	cout << endl;
