@@ -106,6 +106,7 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 		copyCounter++;
 		compCounter++;
 	}
+	//copy left over from the 2 sub list to temp array
 	while (leftP <= mid) 
 	{
 		temp[k++] = v[leftP++];
@@ -116,6 +117,7 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 		temp[k++] = v[rightP++];
 		copyCounter++;
 	}
+	//copy back sorted temp array to the orginal vector
 	for (int i = 0; i < len; i++)
 	{
 		v[left++] = temp[i];
@@ -125,6 +127,7 @@ void Algorithm::merge(vector<int>& v, int left, int mid, int right)
 
 void Algorithm::quicksort(vector <int>& v, int start, int end) 
 {
+	// Base Case
 	if (start < end) {
 		int partition_index = partition(v, start, end);
 		quicksort(v, start, partition_index - 1);
