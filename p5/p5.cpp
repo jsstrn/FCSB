@@ -110,6 +110,9 @@ int main()
 
 /* Q1 — Find the length of a list  */
 int listLength(Node* firstNode) {
+	/* If the node is empty it returns 0
+	 * Else it cycles through the list of nodes and 
+	 * increments the count by 1 each time */
 	Node* currentNode = firstNode;
 	int count = 0;
 	if (currentNode == NULL) return count; // empty list
@@ -122,12 +125,16 @@ int listLength(Node* firstNode) {
 
 /* Q2 — Add a new node at the head of a list */
 void listAddFront(Node* &firstNode, Node* newNode) {
+	/* Assigns the second node to be the first node
+	 * and makes the new node the new first node */
 	newNode->next = firstNode;
 	firstNode = newNode;
 }
 
 /* Q3 — Find a node in a list */
 Node* listFind(Node* firstNode, int value) {
+	/* Traverse the list, if it finds a match then
+	 * return the current node. Else return null */
 	Node* currentNode = firstNode;
 	while (currentNode != NULL) {
 		if (currentNode->data == value) {
@@ -140,6 +147,8 @@ Node* listFind(Node* firstNode, int value) {
 
 /* Q4 — Add a new node at the tail of a list  */
 void listAddBack(Node* &firstNode, Node* newNode) {
+	/* Traverse through the list until it reaches the last node
+	 * then assigns the next node to the new node */
 	Node* currentNode = firstNode;
 	while (currentNode != NULL) {
 		if (currentNode->next == NULL) {
@@ -152,10 +161,14 @@ void listAddBack(Node* &firstNode, Node* newNode) {
 
 /* Q5 — Delete a node from a list */
 Node* listDelete(Node* &firstNode, int value) {
+	/* Create two nodes to traverse the list in tantem 
+	 * Condition 1: Node to delete is the first node 
+	 * Condition 2: Node to delete is anywhere else */
 	Node* currentNode = firstNode;
 	Node* previousNode = firstNode;
 	while (currentNode != NULL) {
 		if (currentNode->data == value) {
+			/* If the node to delete is the first node */
 			if (currentNode == firstNode) {
 				delete firstNode;
 				firstNode = firstNode->next;
@@ -205,7 +218,7 @@ void listLengthDisplay(int length) {
 	cout << endl;
 }
 
-/* Display list details */
+/* Display both the contents of the list and its length */
 void listDisplayAll(Node* &firstNode) {
 	listDisplay(firstNode);
 	int length = listLength(firstNode);
