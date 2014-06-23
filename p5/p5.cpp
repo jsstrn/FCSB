@@ -38,68 +38,70 @@ Node* listCreate(int);
 /* Displays each node in a list */
 void listDisplay(Node*);
 
+/* Diplay length of a list */
+void listLengthDisplay(int);
+
+/* Display list details */
+void listDisplayAll(Node* &);
+
 /* * * * * * * Main Function * * * * * * */
 
 int main()
 {
-	Node* firstNode = listCreate(0);   //To test building an empty list
+	// Create 10 nodes in a list
+	Node* firstNode = listCreate(10);
 	listDisplay(firstNode);
 
 	/* Q1 — Find the length of a list  */
 	int length = listLength(firstNode);
-	cout << "There are " << length << " nodes in this list." << endl;
-	cout << endl;
+	listLengthDisplay(length);
 	
 	/* Q2 — Add a new node at the head of a list */
-	int input=0;
+	int input = 0;
 	Node* frontNode = new Node();
-	cout << "Enter a value to add to the front of the list:" << endl;
+	cout << "Enter a value to add to the front of the list: ";
 	cin >> input;
-	frontNode->data = input;
-	frontNode->next = NULL;
-	listAddFront(firstNode, frontNode);
-	listDisplay(firstNode);
-	cout << endl;
+	frontNode->data = input; // assign user input to node's data
+	frontNode->next = NULL;  // next node is null
+	listAddFront(firstNode, frontNode); // add node to list
 	
-	// Check the length of list again after creating 1 value to list
-	length = listLength(firstNode);
-	cout << "There are " << length << " nodes in this list." << endl;
-	cout << endl;
-
+	// Display list and its length
+	listDisplayAll(firstNode);
 
 	/* Q3 — Find a node in a list */
-	cout << "Enter search value to search in link list:" << endl;
+	cout << "Enter a value to search the list: ";
 	cin >> input;
 	Node* findNode = listFind(firstNode, input);
-	if(findNode!=NULL) cout << "Node "<< findNode->data << " is found!" << endl;
-	else cout << "Node is not found!" << endl;
+	if (findNode != NULL) {
+		cout << "Node "<< findNode->data << " was found!" << endl;
+	} else cout << "Node is not found!" << endl;
 	cout << endl;
-
 
 	/* Q4 — Add a new node at the tail of a list  */
 	Node* backNode = new Node();
-	cout << "Enter a value to add to the back of the link list:" << endl;
+	cout << "Enter a value to add to the back of the list: ";
 	cin >> input;
-	backNode->data = input;
-	backNode->next = NULL;
-	listAddBack(firstNode, backNode);
-	listDisplay(firstNode);
-	cout << endl;
+	backNode->data = input; // assign user input to node's data
+	backNode->next = NULL;  // next node is null
+	listAddBack(firstNode, backNode); // add node to back of list
 
-	// Check the length of list again after creating 2 value to list
-	length = listLength(firstNode);
-	cout << "There are " << length << " nodes in this list." << endl;
-	cout << endl;
-
+	// Display list and its length
+	listDisplayAll(firstNode);
 
 	/* Q5 — Delete a node from a list */
-	cout << "Enter a value to delete from link list:" << endl;
+	cout << "Enter a value to delete from the list: ";
 	cin >> input;
-	Node* deleteNode =listDelete(firstNode, input);
-	if(deleteNode!=NULL) cout << "Node "<< deleteNode->data << " is found and deleted!" << endl;
-	else cout << "Node is not in the list!" << endl;
-	listDisplay(firstNode);
+	
+	Node* deleteNode = listDelete(firstNode, input);
+	if (deleteNode != NULL) {
+		cout << "Node " << deleteNode->data << " is found and deleted!" << endl;
+	} else cout << "Node is not in the list!" << endl;
+	
+	// Display list and its length
+	listDisplayAll(firstNode);
 
+	// delete pointers 
+	delete frontNode, backNode, findNode, deleteNode;
 	delete firstNode;
 	return 0;
 }
@@ -183,16 +185,29 @@ Node* listCreate(int size) {
 
 /* Displays each node in a list */
 void listDisplay(Node* firstNode) {
-	int counter=0;
 	Node* currentNode = firstNode;
+	cout << endl;
 	if (currentNode == NULL) cout << "List is empty!";
-	while (currentNode != NULL) {
-		if (counter == 0) cout << "List: ";
-		counter++;
-		cout << currentNode->data;
-		if (currentNode->next != NULL) cout << " -> ";
-		currentNode = currentNode->next;
-		
+	else {
+		cout << "List: ";
+		while (currentNode != NULL) {
+			cout << currentNode->data;
+			if (currentNode->next != NULL) cout << " -> ";
+			currentNode = currentNode->next;
+		}
 	}
 	cout << endl;
+}
+
+/* Display the length of list */
+void listLengthDisplay(int length) {
+	cout << "There are " << length << " nodes in this list." << endl;
+	cout << endl;
+}
+
+/* Display list details */
+void listDisplayAll(Node* &firstNode) {
+	listDisplay(firstNode);
+	int length = listLength(firstNode);
+	listLengthDisplay(length);
 }
