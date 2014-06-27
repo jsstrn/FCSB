@@ -20,6 +20,15 @@ struct Passenger {
 	Passenger* next;	// points to the next passenger
 };
 
+/*
+ * Abstract Data Type (ADT) operations:
+ * - Create new elements
+ * - Insert elements based on a predefined order
+ * - Read elements at a position
+ * - Write/modify elements at a position
+ * - Remove elements at a position
+*/
+
 /* WaitingList class */
 class WaitingList 
 {
