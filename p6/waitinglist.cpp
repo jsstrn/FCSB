@@ -75,15 +75,20 @@ bool WaitingList::isEmpty() {
 void WaitingList::displayList() {
 	// displays the contents of the list
 	Passenger* currentPassenger = front;
-	if (currentPassenger == NULL) cout << "The waiting list is empty!" << endl;
-	cout << "-\t-------\t\t----" << endl;
-	cout << "#\tAirfare\t\tName" << endl;
-	cout << "-\t-------\t\t----" << endl;
+	if (currentPassenger == NULL) {
+		cout << "The waiting list is empty!" << endl;
+		return;
+	}
+	int index = 1;
+	cout << "-\t-\t-------\t\t----" << endl;
+	cout << "#\tP\tAirfare\t\tName" << endl;
+	cout << "-\t-\t-------\t\t----" << endl;
 	while (currentPassenger != NULL) {
+		cout << index << "\t";
 		cout << currentPassenger->priority << "\t";
 		printf("$%.2f\t", currentPassenger->airfare);
 		cout << currentPassenger->name << endl;
-
+		++index;
 		currentPassenger = currentPassenger->next;
 	}
 }

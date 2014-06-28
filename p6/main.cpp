@@ -29,24 +29,36 @@ int main()
 	// generate 10 passengers and insert them into the waiting list
 	for (int i = 0; i < 10; ++i) {
 		// generate random number between 1 and 7
-		int priority = rand() % 7 + 1;
+		int randPriority = rand() % 7 + 1;
 		// generate random price between $1000.00 and $9999.99
-		float airfare = (rand() % 999999 + 100000) / 100.0;
+		float randAirfare = (rand() % 999999 + 100000) / 100.0;
 		// insert into the waiting list
-		wList->insertPassenger(arrNames[i], priority, airfare);
+		wList->insertPassenger(arrNames[i], randPriority, randAirfare);
 	}
 	// display the waiting list
 	wList->displayList();
+	
+	// initialize variables for passenger
+	string name; int priority; float airfare;
 
 	int choice;
 	do {
 		choice = menu();
 		switch (choice) {
 			case 1:
+				// display the waiting list
 				wList->displayList();
 				break;
 			case 2:
-				cout << "Hello world" << endl;
+				// insert a new passenger into the waiting list
+				cout << "Enter the passenger's details below: " << endl;
+				cout << "    Name: ";
+				cin >> name;
+				cout << "Priority: ";
+				cin >> priority;
+				cout << " Airfare: ";
+				cin >> airfare;
+				wList->insertPassenger(name, priority, airfare);
 				break;
 			case 0:
 				goodbye();
