@@ -1,5 +1,5 @@
 /*	
- *	Developed by Jesstern Rays a1674845
+ *	Developed by Faisal, Hafiz, Jesstern
  *	Bachelor of Computer Science, University of Adelaide
  *	All Rights Reserved. Copyright (C) Jesstern Rays
  *	This work is licensed under CC BY-SA 4.0
@@ -22,8 +22,7 @@ struct Passenger {
 
 /*
  * Abstract Data Type (ADT) operations:
- * - Create new elements
- * - Insert elements based on a predefined order
+ * - Insert elements based on priority and airfare
  * - Read elements at a position
  * - Write/modify elements at a position
  * - Remove elements at a position
@@ -34,28 +33,16 @@ class WaitingList
 {
 private:
 	/* member variables */
-	Passenger* front;	// first passenger in the queue
+	Passenger* front; // first passenger in the waiting list
 public:
 	/* constructor */
 	WaitingList();
 	/* destructor */
 	~WaitingList();
-
 	/* member functions */
-
-	// adds a new passenger
-	Passenger* addPassenger(std::string, int, float);
-	
-	// inserts a new passenger to the waiting list
-	void insertPassenger(Passenger*);
 	void insertPassenger(std::string, int, float);
-	void insertPassenger(int);
-
 	bool isEmpty();
-	
 	void displayList();
-
-
 
 }; // end WaitingList class
 

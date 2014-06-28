@@ -25,55 +25,13 @@ WaitingList::~WaitingList() {
 	}
 }
 /* member functions */
-Passenger* WaitingList::addPassenger(std::string name, int priority, float airfare) {
-	Passenger* newPassenger = new Passenger();
-	newPassenger->name = name;
-	newPassenger->priority = priority;
-	newPassenger->airfare = airfare;
-	newPassenger->next = NULL;
-	return newPassenger;
-}
 
-void WaitingList::insertPassenger(Passenger* newPass) {
-	/* (1) empty list */
-	if (front == NULL) {
-		// newPass->next = newPass;
-		newPass->next = NULL;
-		front = newPass;
-	}
-
-	else {
-		// traverse list and find correct position
-		Passenger* curPass = front;	// pointer for current passenger
-		Passenger* prePass = NULL;	// pointer for previous passenger
-		while (curPass != NULL) {
-			if (curPass->priority >= newPass->priority) {
-				break;
-			} else {
-				prePass = curPass;
-				curPass = curPass->next;
-			}
-		} // end while loop
-
-		/* (2) insert before front of list */
-		if (curPass == front) {
-			newPass->next = front;
-			front = newPass;
-		}
-		/* (3) insert anywhere after front of list */
-		else {
-			newPass->next = curPass;
-			prePass->next = newPass;
-		}
-	} // end else statement
-}
-
-void WaitingList::insertPassenger(int priority) {
+void WaitingList::insertPassenger(std::string name, int priority, float airfare) {
 	// create a new passenger
 	Passenger* newPass = new Passenger();
 	newPass->priority = priority;
-	// newPass->name = name;
-	// newPass->airfare = airfare;
+	newPass->name = name;
+	newPass->airfare = airfare;
 
 	/* (1) empty list */
 	if (front == NULL) {
@@ -118,7 +76,9 @@ void WaitingList::displayList() {
 	// displays the contents of the list
 	Passenger* currentPassenger = front;
 	if (currentPassenger == NULL) cout << "The waiting list is empty!" << endl;
+	cout << "-\t-------\t\t----" << endl;
 	cout << "#\tAirfare\t\tName" << endl;
+	cout << "-\t-------\t\t----" << endl;
 	while (currentPassenger != NULL) {
 		cout << currentPassenger->priority << "\t";
 		printf("$%.2f\t", currentPassenger->airfare);
