@@ -46,6 +46,7 @@ public:
 
 	// adds a new passenger
 	Passenger* addPassenger(std::string, int, float);
+
 	
 	// inserts a new passenger to the waiting list
 	void insertPassenger(Passenger*);
