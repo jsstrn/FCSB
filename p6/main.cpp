@@ -18,19 +18,25 @@ using namespace std;
 int main()
 {
 	WaitingList* wList = new WaitingList();
-	Passenger* p1 = wList->addPassenger("Aegon", 1, 5000.0);
-	Passenger* p2 = wList->addPassenger("Bran", 2, 4000.0);
-	Passenger* p3 = wList->addPassenger("Catelyn", 3, 3000.0);
-	Passenger* p4 = wList->addPassenger("Daenerys", 4, 6000.0);
-	Passenger* p5 = wList->addPassenger("Eddard", 5, 7000.0);
-	Passenger* p6 = wList->addPassenger("Cersei", 6, 8000.0);
 
+	wList->insertPassenger(1);
+	wList->insertPassenger(2);
+	wList->insertPassenger(3);
+	wList->insertPassenger(1);
+	wList->insertPassenger(2);
+	wList->insertPassenger(3);
+
+	Passenger* p1 = new Passenger();
+	p1->priority = 1;
+	p1->airfare = 2.5;
+	p1->name = "Ali";
 	wList->insertPassenger(p1);
-	wList->insertPassenger(p2);
-	wList->insertPassenger(p3);
-	wList->insertPassenger(p4);
-	wList->insertPassenger(p5);
-	wList->insertPassenger(p6);
+	// wList->insertPassenger("Bran", 2, 4000.0);
+	// wList->insertPassenger("Catelyn", 3, 3000.0);
+	// wList->insertPassenger("Daenerys", 4, 6000.0);
+	// wList->insertPassenger("Eddard", 5, 7000.0);
+	// wList->insertPassenger("Cersei", 6, 8000.0);
+
 	wList->displayList();
 
 	return 0;

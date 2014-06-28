@@ -16,7 +16,6 @@ using namespace std;
 /* constructor */
 WaitingList::WaitingList() {
 	front = NULL;
-	back = NULL;
 }
 /* destructor */
 WaitingList::~WaitingList() {
@@ -36,71 +35,77 @@ Passenger* WaitingList::addPassenger(std::string name, int priority, float airfa
 }
 
 void WaitingList::insertPassenger(Passenger* newPass) {
-	Passenger* curPass = front;	// pointer for current passenger
-	Passenger* prePass = front;	// pointer for previous passenger
-	if (isEmpty()) {
-		front = back = newPass;
-		back->next = NULL;
+	/* (1) empty list */
+	if (front == NULL) {
+		// newPass->next = newPass;
+		newPass->next = NULL;
+		front = newPass;
 	}
-	while (curPass != NULL) {
-		/********************************************
-		 * Conditions:
-		 * - newPass-priority > curPass->priority
-		 *   - insert at the back
-		 *   - insert after curPass
-		 * - newPass-priority < curPass->priority
-		 *   - insert at the front
-		 *   - insert before curPass
-		 * - newPass-priority == curPass->priority
-		 *   - newPass->airfare > curPass->airfare
-		 *     - insert at the front
-		 *     - insert before curPass
-		 *   - newPass->airfare < curPass->airfare
-		 *     - insert at the back
-		 *     - insert after curPass
-		 ********************************************/
 
-		if (curPass->priority > newPass->priority) {
-			if (curPass == front) {
-				// insert at the front
-				cout << "a" << endl;
-				newPass->next = front;
-				front = newPass;
-				return;
+	else {
+		// traverse list and find correct position
+		Passenger* curPass = front;	// pointer for current passenger
+		Passenger* prePass = NULL;	// pointer for previous passenger
+		while (curPass != NULL) {
+			if (curPass->priority >= newPass->priority) {
+				break;
 			} else {
-				// insert in between
-				cout << "b" << endl;
-				prePass->next = newPass;
-				newPass->next = curPass;
-				return;
+				prePass = curPass;
+				curPass = curPass->next;
 			}
+		} // end while loop
+
+		/* (2) insert before front of list */
+		if (curPass == front) {
+			newPass->next = front;
+			front = newPass;
 		}
-		if (curPass->priority < newPass->priority) {
-			if (curPass->next == NULL) {
-				// insert at the back
-				cout << "c" << endl;
-				curPass->next = newPass;
-				// newPass->next = NULL;
-				back = newPass;
-				return;
-			} else {
-				// insert in between
-				cout << "d" << endl;
-				newPass->next = curPass->next;
-				curPass->next = newPass;
-				return;
-			}
+		/* (3) insert anywhere after front of list */
+		else {
+			newPass->next = curPass;
+			prePass->next = newPass;
 		}
-		if (curPass->priority == newPass->priority) {
-			if (curPass->airfare < newPass->airfare) {
-				// insert before current passenger
-			} else if (curPass->airfare >= newPass->airfare) {
-				// insert after current passenger
-			}
-		}
-		prePass = curPass;		 // increment prePass to curPass
-		curPass = curPass->next; // increment curPass to next
+	} // end else statement
+}
+
+void WaitingList::insertPassenger(int priority) {
+	// create a new passenger
+	Passenger* newPass = new Passenger();
+	newPass->priority = priority;
+	// newPass->name = name;
+	// newPass->airfare = airfare;
+
+	/* (1) empty list */
+	if (front == NULL) {
+		// newPass->next = newPass;
+		newPass->next = NULL;
+		front = newPass;
 	}
+
+	else {
+		// traverse list
+		Passenger* curPass = front;	// pointer for current passenger
+		Passenger* prePass = NULL;	// pointer for previous passenger
+		while (curPass != NULL) {
+			if (curPass->priority >= newPass->priority) {
+				break;
+			} else {
+				prePass = curPass;
+				curPass = curPass->next;
+			}
+		} // end while loop
+
+		/* (2) insert before front of list */
+		if (curPass == front) {
+			newPass->next = front;
+			front = newPass;
+		}
+		/* (3) insert anywhere after front of list */
+		else {
+			newPass->next = curPass;
+			prePass->next = newPass;
+		}
+	} // end else statement
 }
 
 bool WaitingList::isEmpty() {
@@ -118,6 +123,7 @@ void WaitingList::displayList() {
 		cout << currentPassenger->priority << "\t";
 		printf("$%.2f\t", currentPassenger->airfare);
 		cout << currentPassenger->name << endl;
+
 		currentPassenger = currentPassenger->next;
 	}
 }

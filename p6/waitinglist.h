@@ -35,7 +35,6 @@ class WaitingList
 private:
 	/* member variables */
 	Passenger* front;	// first passenger in the queue
-	Passenger* back;	// last passenger in the queue
 public:
 	/* constructor */
 	WaitingList();
@@ -49,6 +48,8 @@ public:
 	
 	// inserts a new passenger to the waiting list
 	void insertPassenger(Passenger*);
+	void insertPassenger(std::string, int, float);
+	void insertPassenger(int);
 
 	bool isEmpty();
 	
