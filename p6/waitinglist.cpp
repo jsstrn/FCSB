@@ -39,32 +39,6 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 		newPass->next = NULL;
 		front = newPass;
 	}
-
-<<<<<<< HEAD
-		if (curPass->priority < newPass->priority) {
-			if (curPass == front) {
-				// insert at the front
-				cout << "a" << endl;
-				newPass->next = front;
-				front = newPass;
-				return;
-			} else {
-				// insert in between
-				cout << "b" << endl;
-				prePass->next = newPass;
-				newPass->next = curPass;
-				return;
-			}
-		}
-		if (curPass->priority > newPass->priority) {
-			if (curPass->next == NULL) {
-				// insert at the back
-				cout << "c" << endl;
-				curPass->next = newPass;
-				// newPass->next = NULL;
-				back = newPass;
-				return;
-=======
 	else {
 		// traverse list
 		Passenger* curPass = front;	// pointer for current passenger
@@ -72,7 +46,6 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 		while (curPass != NULL) {
 			if (curPass->priority >= newPass->priority) {
 				break;
->>>>>>> FETCH_HEAD
 			} else {
 				prePass = curPass;
 				curPass = curPass->next;
