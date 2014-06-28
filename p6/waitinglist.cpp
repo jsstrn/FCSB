@@ -16,7 +16,6 @@ using namespace std;
 /* constructor */
 WaitingList::WaitingList() {
 	front = NULL;
-	back = NULL;
 }
 /* destructor */
 WaitingList::~WaitingList() {
@@ -26,40 +25,22 @@ WaitingList::~WaitingList() {
 	}
 }
 /* member functions */
-Passenger* WaitingList::addPassenger(std::string name, int priority, float airfare) {
-	Passenger* newPassenger = new Passenger();
-	newPassenger->name = name;
-	newPassenger->priority = priority;
-	newPassenger->airfare = airfare;
-	newPassenger->next = NULL;
-	return newPassenger;
-}
 
-void WaitingList::insertPassenger(Passenger* newPass) {
-	Passenger* curPass = front;	// pointer for current passenger
-	Passenger* prePass = front;	// pointer for previous passenger
-	if (isEmpty()) {
-		front = back = newPass;
-		back->next = NULL;
+void WaitingList::insertPassenger(std::string name, int priority, float airfare) {
+	// create a new passenger
+	Passenger* newPass = new Passenger();
+	newPass->priority = priority;
+	newPass->name = name;
+	newPass->airfare = airfare;
+
+	/* (1) empty list */
+	if (front == NULL) {
+		// newPass->next = newPass;
+		newPass->next = NULL;
+		front = newPass;
 	}
-	while (curPass != NULL) {
-		/********************************************
-		 * Conditions:
-		 * - newPass-priority > curPass->priority
-		 *   - insert at the back
-		 *   - insert after curPass
-		 * - newPass-priority < curPass->priority
-		 *   - insert at the front
-		 *   - insert before curPass
-		 * - newPass-priority == curPass->priority
-		 *   - newPass->airfare > curPass->airfare
-		 *     - insert at the front
-		 *     - insert before curPass
-		 *   - newPass->airfare < curPass->airfare
-		 *     - insert at the back
-		 *     - insert after curPass
-		 ********************************************/
 
+<<<<<<< HEAD
 		if (curPass->priority < newPass->priority) {
 			if (curPass == front) {
 				// insert at the front
@@ -83,24 +64,32 @@ void WaitingList::insertPassenger(Passenger* newPass) {
 				// newPass->next = NULL;
 				back = newPass;
 				return;
+=======
+	else {
+		// traverse list
+		Passenger* curPass = front;	// pointer for current passenger
+		Passenger* prePass = NULL;	// pointer for previous passenger
+		while (curPass != NULL) {
+			if (curPass->priority >= newPass->priority) {
+				break;
+>>>>>>> FETCH_HEAD
 			} else {
-				// insert in between
-				cout << "d" << endl;
-				newPass->next = curPass->next;
-				curPass->next = newPass;
-				return;
+				prePass = curPass;
+				curPass = curPass->next;
 			}
+		} // end while loop
+
+		/* (2) insert before front of list */
+		if (curPass == front) {
+			newPass->next = front;
+			front = newPass;
 		}
-		if (curPass->priority == newPass->priority) {
-			if (curPass->airfare < newPass->airfare) {
-				// insert before current passenger
-			} else if (curPass->airfare >= newPass->airfare) {
-				// insert after current passenger
-			}
+		/* (3) insert anywhere after front of list */
+		else {
+			newPass->next = curPass;
+			prePass->next = newPass;
 		}
-		prePass = curPass;		 // increment prePass to curPass
-		curPass = curPass->next; // increment curPass to next
-	}
+	} // end else statement
 }
 
 bool WaitingList::isEmpty() {
@@ -112,12 +101,20 @@ bool WaitingList::isEmpty() {
 void WaitingList::displayList() {
 	// displays the contents of the list
 	Passenger* currentPassenger = front;
-	if (currentPassenger == NULL) cout << "The waiting list is empty!" << endl;
-	cout << "#\tAirfare\t\tName" << endl;
+	if (currentPassenger == NULL) {
+		cout << "The waiting list is empty!" << endl;
+		return;
+	}
+	int index = 1;
+	cout << "-\t-\t-------\t\t----" << endl;
+	cout << "#\tP\tAirfare\t\tName" << endl;
+	cout << "-\t-\t-------\t\t----" << endl;
 	while (currentPassenger != NULL) {
+		cout << index << "\t";
 		cout << currentPassenger->priority << "\t";
 		printf("$%.2f\t", currentPassenger->airfare);
 		cout << currentPassenger->name << endl;
+		++index;
 		currentPassenger = currentPassenger->next;
 	}
 }
