@@ -31,11 +31,13 @@ void WaitingList::insertPassenger() {
 	// prompt user for passenger details
 	string name; int priority; float airfare;
 	cout << "Enter passenger's details below" << endl;
-	cout << "    Name: ";
+	cout << "Name: ";
 	cin >> name;
-	cout << "Priority: ";
-	cin >> priority;
-	cout << " Airfare: ";
+	do {
+		cout << "Priority (1 to 7): ";
+		cin >> priority;
+	} while (priority < 1 || priority > 7);
+	cout << "Airfare: ";
 	cin >> airfare;
 	insertPassenger(name, priority, airfare);
 }
