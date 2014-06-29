@@ -42,12 +42,16 @@ public:
 	/* destructor */
 	~WaitingList();
 	/* member functions */
-	void insertPassenger(std::string, int, float);
-	void editPassenger(int);
+	// insert a new passenger into the list (prompt for passenger details)
+	void insertPassenger();
+	// insert a new passenger into the list (passenger details provided)
+	void insertPassenger(string, int, float);
+	// removes a passenger from the list
 	void removePassenger(int);
-	void displayPassenger(int);
+	// displays one passenger in the list
+	void displayPassenger(int);	
+	// displays all passengers in the list
 	void displayList();
-	Passenger* getPassenger(int);
 
 }; // end WaitingList class
 

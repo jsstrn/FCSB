@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <string>
 #include "waitinglist.h"
 using namespace std;
 
@@ -26,7 +27,20 @@ WaitingList::~WaitingList() {
 }
 /* member functions */
 
-void WaitingList::insertPassenger(std::string name, int priority, float airfare) {
+void WaitingList::insertPassenger() {
+	// prompt user for passenger details
+	string name; int priority; float airfare;
+	cout << "Enter passenger's details below" << endl;
+	cout << "    Name: ";
+	cin >> name;
+	cout << "Priority: ";
+	cin >> priority;
+	cout << " Airfare: ";
+	cin >> airfare;
+	insertPassenger(name, priority, airfare);
+}
+
+void WaitingList::insertPassenger(string name, int priority, float airfare) {
 	// create a new passenger
 	Passenger* newPass = new Passenger();
 	newPass->priority = priority;
@@ -67,17 +81,6 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 	} // end else statement
 }
 
-void WaitingList::editPassenger(int index) {
-	int count = 1;
-	Passenger* currentPassenger = front;
-	while (currentPassenger != NULL) {
-		if (count == index) break;
-		++count;
-		currentPassenger = currentPassenger->next;
-	}
-
-}
-
 void WaitingList::removePassenger(int index) {
 	int count = 1;
 	Passenger* currentPassenger = front;
@@ -102,19 +105,14 @@ void WaitingList::removePassenger(int index) {
 	}
 }
 
-Passenger* WaitingList::getPassenger(int index) {
+void WaitingList::displayPassenger(int index) {
 	int count = 1;
-	Passenger* currentPassenger = front;
-	while (currentPassenger != NULL) {
+	Passenger* thisPassenger = front;
+	while (thisPassenger != NULL) {
 		if (count == index) break;
 		++count;
-		currentPassenger = currentPassenger->next;
+		thisPassenger = thisPassenger->next;
 	}
-	return currentPassenger;
-}
-
-void WaitingList::displayPassenger(int index) {
-	Passenger* thisPassenger = WaitingList::getPassenger(index);
 	cout << "-\t-\t-------\t\t----" << endl;
 	cout << "#\tP\tAirfare\t\tName" << endl;
 	cout << "-\t-\t-------\t\t----" << endl;
