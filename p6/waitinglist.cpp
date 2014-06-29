@@ -113,6 +113,7 @@ void WaitingList::displayPassenger(int index) {
 		++count;
 		thisPassenger = thisPassenger->next;
 	}
+	cout << endl;
 	cout << "-\t-\t-------\t\t----" << endl;
 	cout << "#\tP\tAirfare\t\tName" << endl;
 	cout << "-\t-\t-------\t\t----" << endl;
@@ -131,6 +132,7 @@ void WaitingList::displayList() {
 		return;
 	}
 	int index = 1;
+	cout << endl;
 	cout << "-\t-\t-------\t\t----" << endl;
 	cout << "#\tP\tAirfare\t\tName" << endl;
 	cout << "-\t-\t-------\t\t----" << endl;
