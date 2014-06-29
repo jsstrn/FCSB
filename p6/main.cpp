@@ -38,6 +38,9 @@ int main()
 		wList->insertPassenger(arrNames[i], randPriority, randAirfare);
 	}
 
+	// display the waiting list
+	wList->displayList();
+
 	int choice;
 	do {
 		choice = menu();

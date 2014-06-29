@@ -24,9 +24,8 @@ struct Passenger {
 
 /*
  * Abstract Data Type (ADT) operations:
- * - Insert elements based on priority and airfare
- * - Read elements at a position
- * - Write/modify elements at a position
+ * - Insert new elements in sorted order based on priority and airfare
+ * - Read elements at a position and the entire list
  * - Remove elements at a position
 */
 
