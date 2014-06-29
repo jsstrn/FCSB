@@ -47,7 +47,7 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 			if (curPass->priority > newPass->priority) {
 				break;
 			}
-			else if (curPass->priority == newPass->priority && checkAirfare(curPass->airfare, newPass->airfare)) {
+			else if (curPass->priority == newPass->priority && curPass->airfare < newPass->airfare) {
 				break;
 			}
 			else {
@@ -67,11 +67,6 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 			prePass->next = newPass;
 		}
 	} // end else statement
-}
-
-bool WaitingList::checkAirfare(float cur, float newp) {
-	if (cur < newp) return true;
-	else return false;
 }
 
 bool WaitingList::isEmpty() {
