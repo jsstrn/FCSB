@@ -44,9 +44,13 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 		Passenger* curPass = front;	// pointer for current passenger
 		Passenger* prePass = NULL;	// pointer for previous passenger
 		while (curPass != NULL) {
-			if (curPass->priority >= newPass->priority) {
+			if (curPass->priority > newPass->priority) {
 				break;
-			} else {
+			}
+			else if (curPass->priority == newPass->priority && checkAirfare(curPass->airfare, newPass->airfare)) {
+				break;
+			}
+			else {
 				prePass = curPass;
 				curPass = curPass->next;
 			}
@@ -63,6 +67,11 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 			prePass->next = newPass;
 		}
 	} // end else statement
+}
+
+bool WaitingList::checkAirfare(float cur, float newp) {
+	if (cur < newp) return true;
+	else return false;
 }
 
 bool WaitingList::isEmpty() {
@@ -91,4 +100,6 @@ void WaitingList::displayList() {
 		currentPassenger = currentPassenger->next;
 	}
 }
+
+
 

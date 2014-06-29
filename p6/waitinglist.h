@@ -7,6 +7,8 @@
 
 #ifndef WAITINGLIST_H
 #define WAITINGLIST_H
+#include <string>
+using namespace std;
  
 /**************************************************/
 /*               Class Declarations               */
@@ -41,6 +43,7 @@ public:
 	~WaitingList();
 	/* member functions */
 	void insertPassenger(std::string, int, float);
+	bool checkAirfare(float c, float n);
 	bool isEmpty();
 	void displayList();
 
