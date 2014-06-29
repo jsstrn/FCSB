@@ -69,12 +69,6 @@ void WaitingList::insertPassenger(std::string name, int priority, float airfare)
 	} // end else statement
 }
 
-bool WaitingList::isEmpty() {
-	// returns true if list is empty, returns false otherwise
-	if (front == NULL) return true;
-	return false;
-}
-
 void WaitingList::displayList() {
 	// displays the contents of the list
 	Passenger* currentPassenger = front;

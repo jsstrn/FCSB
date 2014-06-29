@@ -43,7 +43,6 @@ public:
 	~WaitingList();
 	/* member functions */
 	void insertPassenger(std::string, int, float);
-	bool isEmpty();
 	void displayList();
 
 }; // end WaitingList class
