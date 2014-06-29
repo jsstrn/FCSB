@@ -49,8 +49,6 @@ void WaitingList::insertPassenger(string name, int priority, float airfare) {
 
 	/* (1) empty list */
 	if (front == NULL) {
-		// newPass->next = newPass;
-		newPass->next = NULL;
 		front = newPass;
 	}
 	else {
