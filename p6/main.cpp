@@ -22,6 +22,8 @@ int main()
 {
 	// random seed
 	srand(time(NULL));
+	// initialize variables for passenger creation
+	string name; int priority, index; float airfare;
 	// initialize a new waiting list
 	WaitingList* wList = new WaitingList();
 	// an array of names
@@ -30,16 +32,14 @@ int main()
 	for (int i = 0; i < 10; ++i) {
 		// generate random number between 1 and 7
 		int randPriority = rand() % 7 + 1;
-		// generate random price between $1000.00 and $9999.99
-		float randAirfare = (rand() % 999999 + 100000) / 100.0;
+		// generate random price between $1000.00 and $9000.00
+		float randAirfare = (rand() % 900000 + 100000) / 100.0;
 		// insert into the waiting list
 		wList->insertPassenger(arrNames[i], randPriority, randAirfare);
 	}
+
 	// display the waiting list
 	wList->displayList();
-	
-	// initialize variables for passenger
-	string name; int priority; float airfare;
 
 	int choice;
 	do {
@@ -51,32 +51,41 @@ int main()
 				break;
 			case 2:
 				// insert a new passenger into the waiting list
-				cout << "Enter the passenger's details below: " << endl;
-				cout << "    Name: ";
-				cin >> name;
-				cout << "Priority: ";
-				cin >> priority;
-				cout << " Airfare: ";
-				cin >> airfare;
-				wList->insertPassenger(name, priority, airfare);
+				wList->insertPassenger();
+				break;
+			case 3:
+				// prompt user for passenger's index
+				cout << "Enter passenger's index: ";
+				cin >> index;
+				// display the passenger to be removed
+				cout << "You have removed this passenger." << endl;
+				wList->displayPassenger(index);
+				// remove the passenger
+				wList->removePassenger(index);
 				break;
 			case 0:
 				goodbye();
+				break;
 			default:
 				exit(EXIT_FAILURE);
 		}
 	} while (choice != 0);
-
+	// delete pointer
+	delete wList;
 	return 0;
 } // end main function 
 int menu() {
 	int choice = 0;
 	int min_choice = 0;
-	int max_choice = 2;
-	cout << "1 - Display the waiting list" << endl;
+	int max_choice = 3;
+	cout << endl;
+	cout << "* * * * * * * * * * * * * * * * * * * * * * *" << endl;
+	cout << "1 - Display passengers in the waiting list" << endl;
 	cout << "2 - Add a passenger to the waiting list" << endl;
+	cout << "3 - Remove a passenger from the waiting list" << endl;
 	cout << "0 - Exit the program" << endl;
-	cout << ">> ";
+	cout << "* * * * * * * * * * * * * * * * * * * * * * *" << endl;
+	cout << "Enter selection: ";
 	cin >> choice;
 	if (cin.fail() || (choice < min_choice || choice > max_choice)) {
 		cout << "You entered an invalid input. Program will now exit." << endl;

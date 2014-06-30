@@ -24,9 +24,8 @@ struct Passenger {
 
 /*
  * Abstract Data Type (ADT) operations:
- * - Insert elements based on priority and airfare
- * - Read elements at a position
- * - Write/modify elements at a position
+ * - Insert new elements in sorted order based on priority and airfare
+ * - Read elements at a position and the entire list
  * - Remove elements at a position
 */
 
@@ -42,8 +41,15 @@ public:
 	/* destructor */
 	~WaitingList();
 	/* member functions */
-	void insertPassenger(std::string, int, float);
-	bool isEmpty();
+	// insert a new passenger into the list (prompt for passenger details)
+	void insertPassenger();
+	// insert a new passenger into the list (passenger details provided)
+	void insertPassenger(string, int, float);
+	// removes a passenger from the list
+	void removePassenger(int);
+	// displays one passenger in the list
+	void displayPassenger(int);	
+	// displays all passengers in the list
 	void displayList();
 
 }; // end WaitingList class
