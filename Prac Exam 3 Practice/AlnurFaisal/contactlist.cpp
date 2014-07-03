@@ -43,11 +43,44 @@ void contactlist::createcontact()
 void contactlist::insertcontactlist(std::string store_name, std::string store_phone)
 {
 	// this will insert nodes to the front of list
+	// will create a condition to measure whether head is null
+	// if null will add to head else will use comparison to measure and add
 	contact* temp = new contact();
+	contact* currpass = head;
+	contact* prepass = NULL;
 	temp->name = store_name;
 	temp->phone = store_phone;
-	temp->next = head;
-	head = temp;
+	if(currpass == NULL)
+	{
+		head = temp;
+	}
+	else
+	{
+		while(currpass != NULL)
+		{
+			if(currpass->name >= temp->name)
+			{
+				break;
+			}
+			else
+			{
+				prepass = currpass;
+				currpass = currpass->next;
+			}
+		}
+		if(currpass == head)
+		{
+			temp->next = head;
+			head = temp;
+		}
+		else
+		{
+			temp->next = currpass;
+			prepass->next = temp;
+		}
+	}
+	
+	
 }
 
 void contactlist::insertanywhere(int index)
