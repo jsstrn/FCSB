@@ -53,10 +53,10 @@ node* newHead(node * head){
 
 int main(){
  node * head = 0;
- head = nodeNew(10, head); 
- head = nodeNew(20, head);
- head = nodeNew(5, head);
- head = nodeNew(11, head);
+ head = nodeNew(40, head); 
+ // head = nodeNew(30, head);
+ // head = nodeNew(20, head);
+ // head = nodeNew(10, head);
  listPrint(head);
  listPrint(newHead(head));
 }
