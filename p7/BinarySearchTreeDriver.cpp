@@ -13,7 +13,7 @@ int main()
 	root = NULL;
 
 	// create values in an array
-	int arr[9] = {15, 9, 2, 3, 21, 9, 4, 17, 1};
+	int arr[9] = {15, 9, 2, 3, 4, 1, 21, 9, 17};
 
 	// add values to binary search tree
 	for (int i = 0; i < 9; ++i) {

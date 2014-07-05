@@ -8,12 +8,14 @@ BinarySearchTree::~BinarySearchTree() { }
 
 void BinarySearchTree::traverseInOrder(binNode* root) {
 	if (root != NULL) {
+		//cout << root->data << ", ";
 		// call left node
 		traverseInOrder(root->left);
 		// print node's data
 		cout << root->data << ", ";
 		// call right node
 		traverseInOrder(root->right);
+		//cout << root->data << ", ";
 	}
 } // end traverseInOrder function
 
