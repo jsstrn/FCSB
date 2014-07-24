@@ -1,0 +1,174 @@
+#include <iostream>
+#include "Node.h"
+#include "CircularQueue.h"
+
+using namespace std;
+
+CircularQueue::CircularQueue()
+{
+	head = NULL;
+	size = 0;
+}
+CircularQueue::~CircularQueue()
+{
+	Node* currpass = head;
+	Node* nexpass = NULL;
+	while(currpass != NULL)
+	{
+		nexpass = currpass->next;
+		delete currpass;
+		currpass = nexpass;
+	}
+}
+bool CircularQueue::isEmpty()
+{
+	Node* currpass = head;
+	if(currpass == NULL)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+void CircularQueue::add(int element, int position)
+{
+	Node* currpass = head;
+	Node* prepass = NULL;
+	bool answer;
+	answer = isEmpty();
+
+	if(answer == true)
+	{
+		cout << "You have not created a link list." << endl;
+		cout << "Creating a link list." << endl;
+		cout << "What is your size for the list: " << endl;
+		cin >> size;
+		cout << endl;
+		int counter = 0;
+		for(int i=size; i > 0; i--)
+		{
+			Node* newnode = new Node;
+			cout << "Enter a numeric value: ";
+			cin >> newnode->value;
+			cout << endl;
+			newnode->next = head;
+			head = newnode;
+			counter++;
+			cout << counter << " node created." << endl;
+			cout << endl;
+		}
+		currpass = head;
+		for(int i=1; i < size; i++)
+		{
+			prepass = currpass;
+			currpass = currpass->next;
+		}
+		prepass->next = head;
+
+	}
+	else
+	{
+		for(int i=1; i < position; i++)
+		{
+			if(currpass == NULL) break;
+			prepass = currpass;
+			currpass = currpass->next;
+		}
+		if(currpass == NULL)
+		{
+			cout << "Position Not Found!" << endl;
+			cout << endl;
+		}
+		else if(currpass == head)
+		{
+			Node* newnode = new Node;
+			newnode->value = element;
+			newnode->next = currpass;
+			head = newnode;
+			currpass = head;
+			for(int i=1; i < size; i++)
+			{
+				prepass = currpass;
+				currpass = currpass->next;
+			}
+			prepass->next = head;
+
+			cout << "Node created in " << position;
+			cout << " position." << endl;
+			cout << endl;
+		}
+		else
+		{
+			Node* newnode = new Node;
+			newnode->value = element;
+			newnode->next = currpass;
+			prepass->next = newnode;
+			cout << "Node created in " << position;
+			cout << " position." << endl;
+			cout << endl;
+		}
+	}
+}
+void CircularQueue::display()
+{
+	Node* currpass = head;
+	while(currpass != NULL)
+	{
+		cout << currpass->value << " ,";
+		currpass = currpass->next;
+	}
+	cout << endl;
+}
+int CircularQueue::operator-(int position)
+{
+	Node* currpass = head;
+	Node* prepass = NULL;
+	Node* nextpass = NULL;
+	bool answer;
+	answer = isEmpty();
+
+	if(answer == true)
+	{
+		cout << "No deletion can be made on an empty list.";
+		cout << endl;
+	}
+	else
+	{
+		for(int i=1; i < position; i++)
+		{
+			if(currpass == NULL) break;
+			nextpass = currpass->next;
+			prepass = currpass;
+			currpass = nextpass;
+		}
+		if(currpass == NULL)
+		{
+			cout << "Position Not Found!" << endl;
+			cout << endl;
+		}
+		else if(currpass == head)
+		{
+			head = currpass->next;
+			delete currpass;
+			currpass = head;
+			for(int i=1; i < size; i++)
+			{
+				prepass = currpass;
+				currpass = currpass->next;
+			}
+			prepass->next = head;
+
+
+		}
+		else
+		{
+			currpass->next = nextpass->next;
+			delete currpass;
+		}
+
+	}
+	
+
+}
